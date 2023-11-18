@@ -2,18 +2,19 @@
 
 ## Sovelluksen tarkoitus
 
-Sovellus on pygame -kirjastolla toteutettu __Flappy Bird__ -tyylinen *peli*. Pelissä lennetään linnulla putkien välistä ja tarkoituksena on saada mahdollisimman suuri pistetulos eli lentää mahdollisimman pitkälle. Jos lintu putoaa maahan tai osuu putkiin, peli loppuu ja sen voi aloittaa alusta. 
+Sovellus on pygame -kirjastolla toteutettu **Flappy Bird** -tyylinen _peli_. Pelissä lennetään linnulla putkien välistä ja tarkoituksena on saada mahdollisimman suuri pistetulos eli lentää mahdollisimman pitkälle. Jos lintu putoaa maahan tai osuu putkiin, peli loppuu ja sen voi aloittaa alusta.
 
 ## Perusversion toiminnallisuus
 
 ### Alkutilanne
 
+- Lintu näyttää lentävän --> maa liikkuu
 - Pelin voi aloittaa painamalla **space-näppäintä** tai **vasenta hiirinäppäintä**
 - Pistemäärä on alussa 0
 
 ### Pelitilanne
 
-- Tausta liikkuu
+- Maa liikkuu
 - Lintua voi lentää klikkaamalla **space**-näppäintä tai **vasenta hiirinäppäintä**
 - Ruudulla näkyvä pistemäärä päivittyy kun kahden putken välistä lennetään onnistuneesti
 - Peli päättyy jos lintu osuu putkiin tai maahan
@@ -26,6 +27,7 @@ Sovellus on pygame -kirjastolla toteutettu __Flappy Bird__ -tyylinen *peli*. Pel
 ## Jatkokehitysideoita
 
 - Split screen version lisääminen
+- Objektien lisääminen joita keräämällä saa lisäpisteitä
 - Eri vaikeustasojen lisääminen:
-    - Kasvava nopeus
-    - Ylimääräisten objektien lisääminen, joita tulee väistellä
+  - Kasvava nopeus
+  - Ylimääräisten objektien lisääminen, joita tulee väistellä
