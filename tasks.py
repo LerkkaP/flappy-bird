@@ -6,7 +6,7 @@ def start(ctx):
 
 @task
 def test(ctx):
-    ctx.run("pylint src/tests", pty=True)
+    ctx.run("pytest src/tests", pty=True)
 
 @task
 def coverage(ctx):
