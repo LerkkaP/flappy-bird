@@ -18,9 +18,9 @@ class Bird(pygame.sprite.Sprite):
 
         self.velocity = 0  
         self.gravity = 0.2
+        self.angle = 30
         
     def update(self):
-        
         self.current_sprite += 0.1
 
         if self.current_sprite >= len(self.sprites):
@@ -31,7 +31,12 @@ class Bird(pygame.sprite.Sprite):
         self.rect.y += self.velocity
 
         if self.velocity < 0:
-            self.image = pygame.transform.rotate(self.image, 30)
+            self.angle = 30
+            self.image = pygame.transform.rotate(self.image, self.angle)
         else:
             self.gravity = 0.3
-            self.image = pygame.transform.rotate(self.image, -40)
+            if self.angle >= -90:
+                self.angle -= 5
+            self.image = self.sprites[1]
+            self.image = pygame.transform.rotate(self.image, self.angle)
+

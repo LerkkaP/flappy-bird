@@ -7,3 +7,4 @@
 | 18.11 | 3    | Projektin alustus - rakenne, taustan lisääminen ja liikkuva maa   |
 | 19.11 | 2    | Aloitusnäyttö, linnun alustava fysiikka                           |
 | 20.11 | 2    | Linnun fysiikan parantaminen, äänen lisääminen linnulle lentäessä |
+| 21.11 | 3    | Lentämisen parantelu, Rakenteen refaktorointi, testausta          |
