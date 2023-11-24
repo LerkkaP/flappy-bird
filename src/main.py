@@ -3,6 +3,7 @@ import os
 from game_phases.start import Start
 from game_phases.gameplay import Gameplay
 from ground_movement import GroundMovement
+from pipe_movement import PipeMovement
 
 pygame.init()
 screen_width, screen_height = 480, 620
@@ -18,6 +19,7 @@ start_phase = Start(screen_width, screen_height)
 gameplay_phase = Gameplay(screen_width, screen_height)
 
 ground_movement = GroundMovement(screen_width, screen_height)
+pipe_movement = PipeMovement(screen_width, screen_height)
 
 hover_speed = 0.25
 hover_range  = 5
@@ -55,6 +57,10 @@ while True:
         ground_movement.ground.draw(display)
         ground_movement.ground.update()
         ground_movement.update_ground()
+
+        pipe_movement.pipe.draw(display)
+        pipe_movement.pipe.update()
+        pipe_movement.update_pipe()
 
         gameplay_phase.bird.draw(display)
         gameplay_phase.bird.update()

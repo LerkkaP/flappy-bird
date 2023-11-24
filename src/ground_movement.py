@@ -18,7 +18,3 @@ class GroundMovement:
         if last_ground.rect.right < self.screen_width:
             new_ground_x = last_ground.rect.right
             self.ground.add(Ground(self.speed, self.screen_width, new_ground_x, self.ground_initial_y))
-
-    
-
-        
