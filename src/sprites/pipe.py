@@ -4,7 +4,7 @@ import os
 dirname = os.path.dirname(__file__)
 
 class Pipe(pygame.sprite.Sprite):
-    def __init__(self, speed, screen_width, screen_height, x, y, flip, height):
+    def __init__(self, speed, screen_width, screen_height, x, y, flip):
         super().__init__()
 
         self.image = pygame.image.load(
@@ -16,14 +16,10 @@ class Pipe(pygame.sprite.Sprite):
         self.screen_height = screen_height
         self.rect.x = x
         self.rect.y = y
-        self.height = height
 
         if flip:
-            self.image = pygame.transform.scale(self.image, (self.image.get_width(), self.height))
             self.image = pygame.transform.rotate(self.image, 180)
-        #else:
-            #self.image = pygame.transform.scale(self.image, (self.image.get_width(), 50))
-
+            
     def update(self):
         self.rect.x -= self.speed
         if self.rect.x <= -self.screen_width:

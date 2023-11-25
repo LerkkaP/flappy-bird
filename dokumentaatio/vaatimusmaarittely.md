@@ -8,16 +8,17 @@ Sovellus on pygame -kirjastolla toteutettu **Flappy Bird** -tyylinen _peli_. Pel
 
 ### Alkutilanne
 
-- Välkkyvä aloituskuva
-- Pelin voi aloittaa painamalla **space-näppäintä** tai **vasenta hiirinäppäintä**
+- Välkkyvä aloituskuva &#9745;
+- Pelin voi aloittaa painamalla **space-näppäintä** tai **vasenta hiirinäppäintä** &#9745;
 
 ### Pelitilanne
 
-- Maa liikkuu
-- Pistemäärä on alussa 0
-- Lintua voi lentää klikkaamalla **space**-näppäintä tai **vasenta hiirinäppäintä**
-- Ruudulla näkyvä pistemäärä päivittyy kun kahden putken välistä lennetään onnistuneesti
-- Peli päättyy jos lintu osuu putkiin tai maahan
+- Maa liikkuu &#9745;
+- Pistemäärä on alussa 0 
+- Lintua voi lentää klikkaamalla **space**-näppäintä tai **vasenta hiirinäppäintä** &#9745;
+- Putket liikkuvat ja niiden välistä voi lentää &#9745;
+- Ruudulla näkyvä pistemäärä päivittyy kun kahden putken välistä lennetään onnistuneesti 
+- Peli päättyy jos lintu osuu putkiin tai maahan &#9745;
 
 ### Lopputilanne
 

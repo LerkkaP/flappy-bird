@@ -54,13 +54,16 @@ while True:
         display.blit(start_phase.start_message, (start_phase.start_message_x, hover_offset_y))        
     
     elif game_phase == "gameplay":
-        ground_movement.ground.draw(display)
-        ground_movement.ground.update()
-        ground_movement.update_ground()
-
+        '''
+            the pipes must be drawn first in order for them to be below the ground sprite
+        '''
         pipe_movement.pipe.draw(display)
         pipe_movement.pipe.update()
         pipe_movement.update_pipe()
+
+        ground_movement.ground.draw(display)
+        ground_movement.ground.update()
+        ground_movement.update_ground()
 
         gameplay_phase.bird.draw(display)
         gameplay_phase.bird.update()
@@ -68,7 +71,8 @@ while True:
             gameplay_phase.fall()
         
         ground_collision = pygame.sprite.groupcollide(ground_movement.ground, gameplay_phase.bird, False, False)
-        if ground_collision:
+        pipe_collision = pygame.sprite.groupcollide(pipe_movement.pipe, gameplay_phase.bird, False, False)
+        if ground_collision or pipe_collision:
             pygame.quit()
             
     pygame.display.update()
