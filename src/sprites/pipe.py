@@ -1,15 +1,12 @@
 import pygame
-import os
-
-dirname = os.path.dirname(__file__)
+from utils.asset_loader import AssetLoader
 
 class Pipe(pygame.sprite.Sprite):
     def __init__(self, speed, screen_width, screen_height, x, y, flip):
         super().__init__()
 
-        self.image = pygame.image.load(
-            os.path.join(dirname, "..", "assets/images/world", "pipe-green.png")
-        )
+        self.image = AssetLoader.load_image("world", "pipe-green.png")
+
         self.rect = self.image.get_rect()
         self.speed = speed
         self.screen_width = screen_width

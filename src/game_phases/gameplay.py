@@ -1,9 +1,9 @@
 import pygame
-import os
 from sprites.bird import Bird
 from game_phases.start import Start
-
-dirname = os.path.dirname(__file__)
+from movements.ground_movement import GroundMovement
+from movements.pipe_movement import PipeMovement
+from utils.asset_loader import AssetLoader
 
 class Gameplay:
     def __init__(self, screen_width, screen_height):
@@ -15,8 +15,22 @@ class Gameplay:
         self.bird = pygame.sprite.Group()
         self.bird.add(Bird(self.screen_width / 3, self.screen_height / 2))
 
-        self.wing_sound = pygame.mixer.Sound(os.path.join(dirname, "..", "assets/sounds/", "wing.wav"))   
+        self.wing_sound = AssetLoader.load_sound("wing.wav") 
         self.wing_sound.set_volume(0.2)
+
+        self.ground_movement = GroundMovement(screen_width, screen_height)
+        self.pipe_movement = PipeMovement(screen_width, screen_height)
+
+    def update(self):
+        self.ground_movement.ground.update()
+        self.ground_movement.update_ground()
+
+        self.pipe_movement.pipe.update()
+        self.pipe_movement.update_pipe()
+
+    def render(self, display):
+        self.pipe_movement.pipe.draw(display)
+        self.ground_movement.ground.draw(display)
 
     def fly(self, dx=0, dy=0):
         for bird in self.bird.sprites():

@@ -1,12 +1,11 @@
 import pygame
-import os
-
-dirname = os.path.dirname(__file__)
+from utils.asset_loader import AssetLoader
 
 class Bird(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()
-        self.sprites = [pygame.image.load(os.path.join(dirname, "..", "assets/images/bird", f"bluebird-{i}.png")) for i in ["upflap", "midflap", "downflap"]]
+
+        self.sprites = [AssetLoader.load_image("bird", f"bluebird-{i}.png") for i in ["upflap", "midflap", "downflap"]]
 
         self.current_sprite = 0
         self.image = self.sprites[self.current_sprite]
