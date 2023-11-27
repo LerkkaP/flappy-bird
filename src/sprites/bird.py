@@ -1,11 +1,13 @@
 import pygame
 from utils.asset_loader import AssetLoader
 
+
 class Bird(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()
 
-        self.sprites = [AssetLoader.load_image("bird", f"bluebird-{i}.png") for i in ["upflap", "midflap", "downflap"]]
+        self.sprites = [AssetLoader.load_image(
+            "bird", f"bluebird-{i}.png") for i in ["upflap", "midflap", "downflap"]]
 
         self.current_sprite = 0
         self.image = self.sprites[self.current_sprite]
@@ -15,10 +17,10 @@ class Bird(pygame.sprite.Sprite):
         self.rect.x = x
         self.rect.y = y
 
-        self.velocity = 0  
+        self.velocity = 0
         self.gravity = 0.2
         self.angle = 30
-        
+
     def update(self):
         self.current_sprite += 0.1
 
@@ -38,4 +40,3 @@ class Bird(pygame.sprite.Sprite):
                 self.angle -= 5
             self.image = self.sprites[1]
             self.image = pygame.transform.rotate(self.image, self.angle)
-

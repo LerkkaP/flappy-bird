@@ -5,6 +5,7 @@ from movements.ground_movement import GroundMovement
 from movements.pipe_movement import PipeMovement
 from utils.asset_loader import AssetLoader
 
+
 class Gameplay:
     def __init__(self, screen_width, screen_height):
 
@@ -15,7 +16,7 @@ class Gameplay:
         self.bird = pygame.sprite.Group()
         self.bird.add(Bird(self.screen_width / 3, self.screen_height / 2))
 
-        self.wing_sound = AssetLoader.load_sound("wing.wav") 
+        self.wing_sound = AssetLoader.load_sound("wing.wav")
         self.wing_sound.set_volume(0.2)
 
         self.ground_movement = GroundMovement(screen_width, screen_height)

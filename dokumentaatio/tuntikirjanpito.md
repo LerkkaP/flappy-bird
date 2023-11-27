@@ -9,4 +9,6 @@
 | 20.11 | 2    | Linnun fysiikan parantaminen, äänen lisääminen linnulle lentäessä |
 | 21.11 | 3    | Lentämisen parantelu, Rakenteen refaktorointi, testausta          |
 | 24.11 | 1    | Putkien suunnittelu                                               |
-| 25.11 | 4    | Putkien lisääminen peliin                                         | 
+| 25.11 | 4    | Putkien lisääminen peliin                                         |
+| 26.11 | 3    | Refaktorointia                                                    |
+| 27.11 | 2    | Refaktorointia ja pylintin käyttöönotto                           |

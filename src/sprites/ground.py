@@ -1,6 +1,7 @@
 import pygame
 from utils.asset_loader import AssetLoader
 
+
 class Ground(pygame.sprite.Sprite):
     def __init__(self, speed, screen_width, x, y):
         super().__init__()
