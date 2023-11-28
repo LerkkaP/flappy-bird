@@ -18,6 +18,3 @@ class Start:
     def update(self):
         self.ground_movement.ground.update()
         self.ground_movement.update_ground()
-
-    def render(self, display):
-        self.ground_movement.ground.draw(display)

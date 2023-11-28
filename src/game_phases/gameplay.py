@@ -29,10 +29,6 @@ class Gameplay:
         self.pipe_movement.pipe.update()
         self.pipe_movement.update_pipe()
 
-    def render(self, display):
-        self.pipe_movement.pipe.draw(display)
-        self.ground_movement.ground.draw(display)
-
     def fly(self, dx=0, dy=0):
         for bird in self.bird.sprites():
             bird.rect.move_ip(dx, dy)

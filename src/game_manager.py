@@ -3,8 +3,6 @@ from game_phases.start import Start
 from game_phases.gameplay import Gameplay
 from movements.ground_movement import GroundMovement
 from movements.pipe_movement import PipeMovement
-from utils.asset_loader import AssetLoader
-
 
 class GameManager():
     def __init__(self, screen_width, screen_height):
@@ -57,26 +55,3 @@ class GameManager():
             )
             if ground_collision or pipe_collision:
                 pygame.quit()
-
-    def render(self, display):
-        background_image = AssetLoader.load_image(
-            "world", "background-day.png")
-        background_image = pygame.transform.scale(
-            background_image, (self.screen_width, self.screen_height))
-
-        display.blit(
-            background_image,
-            (0, 0)
-        )
-
-        if self.game_phase == "start":
-            self.start_phase.render(display)
-            hover_offset_y = self.start_phase.start_message_y + self.current_hover
-            display.blit(
-                self.start_phase.start_message,
-                (self.start_phase.start_message_x, hover_offset_y)
-            )
-
-        elif self.game_phase == "gameplay":
-            self.gameplay_phase.render(display)
-            self.gameplay_phase.bird.draw(display)
