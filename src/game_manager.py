@@ -4,6 +4,7 @@ from game_phases.gameplay import Gameplay
 from movements.ground_movement import GroundMovement
 from movements.pipe_movement import PipeMovement
 
+
 class GameManager():
     def __init__(self, screen_width, screen_height):
         self.screen_width = 480
@@ -28,10 +29,10 @@ class GameManager():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     self.game_phase = "gameplay"
-                    self.gameplay_phase.fly(0, -20)
+                    self.gameplay_phase.handle_bird_fly(0, -10)
             if event.type == pygame.MOUSEBUTTONDOWN:
                 self.game_phase = "gameplay"
-                self.gameplay_phase.fly(0, -20)
+                self.gameplay_phase.handle_bird_fly(0, -20)
 
     def handle_game_state(self):
         if self.game_phase == "start":
@@ -45,7 +46,7 @@ class GameManager():
             self.gameplay_phase.update()
             self.gameplay_phase.bird.update()
             if not any(pygame.key.get_pressed()):
-                self.gameplay_phase.fall()
+                self.gameplay_phase.handle_bird_fall()
 
             ground_collision = pygame.sprite.groupcollide(
                 self.ground_movement.ground, self.gameplay_phase.bird, False, False

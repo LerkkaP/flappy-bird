@@ -12,3 +12,5 @@
 | 25.11 | 4    | Putkien lisääminen peliin                                         |
 | 26.11 | 3    | Refaktorointia                                                    |
 | 27.11 | 2    | Refaktorointia ja pylintin käyttöönotto                           |
+| 28.11 | 6    | Refaktorointia, testaamista                                       |
+| yht.  | 27   |

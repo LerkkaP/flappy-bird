@@ -1,6 +1,6 @@
 import unittest
 from sprites.ground import Ground
-from ground_movement import GroundMovement
+from movements.ground_movement import GroundMovement
 
 speed = 2
 screen_width = 480

@@ -16,5 +16,5 @@ class Ground(pygame.sprite.Sprite):
 
     def update(self):
         self.rect.x -= self.speed
-        if self.rect.x <= -self.screen_width:
+        if self.rect.right < 0:
             self.kill()
