@@ -1,6 +1,5 @@
 import pygame
 from sprites.bird import Bird
-from game_phases.start import Start
 from movements.ground_movement import GroundMovement
 from movements.pipe_movement import PipeMovement
 from utils.asset_loader import AssetLoader
@@ -21,6 +20,7 @@ class Gameplay:
 
         self.ground_movement = GroundMovement(screen_width, screen_height)
         self.pipe_movement = PipeMovement(screen_width, screen_height)
+        self.pause = False
 
     def update(self):
         self.ground_movement.ground.update()
@@ -49,7 +49,6 @@ class Gameplay:
             self.pipe_movement.pipe, self.bird, False, False
             )
         if ground_collision or pipe_collision:
-                pygame.quit()
-
-    #def handle_score(self):
-        #if self.bird.rect.right == self.
+            self.ground_movement.move = False
+            self.pipe_movement.move = False
+            self.pause = True

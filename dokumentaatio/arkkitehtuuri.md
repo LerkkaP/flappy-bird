@@ -20,12 +20,7 @@ classDiagram
         screen_height: int
         start_phase: Start
         gameplay_phase: Gameplay
-        ground_movement: GroundMovement
-        pipe_movement: PipeMovement
-        hover_speed: float
-        hover_range: int
-        hover_direction: int
-        current_hover: int
+        game_phase: start
         handle_events()
         handle_game_state()
     }

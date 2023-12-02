@@ -15,6 +15,16 @@ class Start:
 
         self.ground_movement = GroundMovement(screen_width, screen_height)
 
+        self.hover_speed = 0.25
+        self.hover_range = 5
+        self.hover_direction = 1
+        self.current_hover = 0
+
     def update(self):
         self.ground_movement.ground.update()
         self.ground_movement.update_ground()
+
+    def handle_text_hover(self):
+        self.current_hover += self.hover_speed * self.hover_direction
+        if abs(self.current_hover) >= self.hover_range:
+            self.hover_direction *= -1

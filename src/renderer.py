@@ -26,7 +26,8 @@ class Renderer:
                 self.display)
 
             hover_offset_y = self.game_manager.start_phase.start_message_y + \
-                self.game_manager.current_hover
+                self.game_manager.start_phase.current_hover
+
             self.display.blit(
                 self.game_manager.start_phase.start_message,
                 (self.game_manager.start_phase.start_message_x, hover_offset_y)
