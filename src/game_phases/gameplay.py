@@ -39,3 +39,17 @@ class Gameplay:
     def handle_bird_fall(self):
         for bird in self.bird.sprites():
             bird.fall()
+
+    def handle_collision(self):
+
+        ground_collision = pygame.sprite.groupcollide(
+            self.ground_movement.ground, self.bird, False, False)
+
+        pipe_collision = pygame.sprite.groupcollide(
+            self.pipe_movement.pipe, self.bird, False, False
+            )
+        if ground_collision or pipe_collision:
+                pygame.quit()
+
+    #def handle_score(self):
+        #if self.bird.rect.right == self.

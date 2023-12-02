@@ -1,8 +1,6 @@
 import pygame
 from game_phases.start import Start
 from game_phases.gameplay import Gameplay
-from movements.ground_movement import GroundMovement
-from movements.pipe_movement import PipeMovement
 
 
 class GameManager():
@@ -12,8 +10,6 @@ class GameManager():
 
         self.start_phase = Start(screen_width, screen_height)
         self.gameplay_phase = Gameplay(screen_width, screen_height)
-        self.ground_movement = GroundMovement(screen_width, screen_height)
-        self.pipe_movement = PipeMovement(screen_width, screen_height)
 
         self.hover_speed = 0.25
         self.hover_range = 5
@@ -21,6 +17,7 @@ class GameManager():
         self.current_hover = 0
 
         self.game_phase = "start"
+        self.score = 0
 
     def handle_events(self):
         for event in pygame.event.get():
@@ -45,14 +42,8 @@ class GameManager():
         elif self.game_phase == "gameplay":
             self.gameplay_phase.update()
             self.gameplay_phase.bird.update()
+            self.gameplay_phase.handle_collision()
+            #self.gameplay_phase.handle_score(self.score)
+
             if not any(pygame.key.get_pressed()):
                 self.gameplay_phase.handle_bird_fall()
-
-            ground_collision = pygame.sprite.groupcollide(
-                self.ground_movement.ground, self.gameplay_phase.bird, False, False
-            )
-            pipe_collision = pygame.sprite.groupcollide(
-                self.gameplay_phase.pipe_movement.pipe, self.gameplay_phase.bird, False, False
-            )
-            if ground_collision or pipe_collision:
-                pygame.quit()

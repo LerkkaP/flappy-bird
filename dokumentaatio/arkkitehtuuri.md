@@ -6,8 +6,6 @@
 classDiagram
     GameManager --> Start
     GameManager --> Gameplay
-    GameManager --> GroundMovement
-    GameManager --> PipeMovement
 
     Gameplay --> GroundMovement
     Gameplay --> PipeMovement
