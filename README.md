@@ -45,6 +45,18 @@ Testikattavuusraportin luominen:
 poetry run invoke coverage-report
 ```
 
+Pylintin ajaminen
+
+```bash
+poetry run invoke lint
+```
+
+Automaattinen formatointi
+
+```bash
+poetry run invoke format
+```
+
 ## Pelin grafiikat
 
 Kaikki pelin grafiikat ja äänet ovat peräisin [täältä](https://github.com/samuelcust/flappy-bird-assets)
