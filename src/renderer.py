@@ -41,3 +41,15 @@ class Renderer:
                 self.display)
 
             self.game_manager.gameplay_phase.bird.draw(self.display)
+
+            current_score = self.game_manager.gameplay_phase.get_current_score()
+            self._render_score(current_score)
+
+    def _render_score(self, score):
+            scores = [i for i in str(score)]
+
+            for i in range(len(scores)):
+                image = AssetLoader.load_image("score", f"{scores[i]}.png")
+                self.display.blit(
+                image,
+                ((self.screen_width - image.get_width()) // 2 + i * 21, 50))

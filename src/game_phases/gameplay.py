@@ -12,15 +12,24 @@ class Gameplay:
         self.screen_height = screen_height
 
         self.bird = pygame.sprite.Group()
-        self.bird.add(Bird(self.screen_width / 3, self.screen_height / 2))
+        self.bird.add(Bird(160, self.screen_height / 2))
 
-        pygame.mixer.init()
-        self.wing_sound = AssetLoader.load_sound("wing.wav")
-        self.wing_sound.set_volume(0.2)
+        # Sounds
+        self._mixer = pygame.mixer
+        self._mixer.init()
+        self._wing_sound = AssetLoader.load_sound("wing.wav")
+        self._wing_sound.set_volume(0.2)
+
+        self._die_sound = AssetLoader.load_sound("die.wav")
+        self._die_sound.set_volume(0.2)
+
+        self._point_sound = AssetLoader.load_sound("point.wav")
+        self._point_sound.set_volume(0.2)
 
         self.ground_movement = GroundMovement(screen_width, screen_height)
         self.pipe_movement = PipeMovement(screen_width, screen_height)
         self.pause = False
+        self.score = 0
 
     def update(self):
         self.ground_movement.ground.update()
@@ -28,27 +37,48 @@ class Gameplay:
 
         self.pipe_movement.pipe.update()
         self.pipe_movement.update_pipe()
+        score_updated = self.pipe_movement.update_score()
+
+        if score_updated:
+            self.score = self._get_score()
+            self._mixer.Sound.play(self._point_sound)
+            self._mixer.music.stop()
+
+    def _get_score(self):
+        return self.pipe_movement.return_score()
+    
+    def get_current_score(self):
+        return self.score
 
     def handle_bird_fly(self, dx, dy):
         for bird in self.bird.sprites():
             bird.fly(dx, dy)
 
-        pygame.mixer.Sound.play(self.wing_sound)
-        pygame.mixer.music.stop()
+        self._mixer.Sound.play(self._wing_sound)
+        self._mixer.music.stop()
 
     def handle_bird_fall(self):
-        for bird in self.bird.sprites():
-            bird.fall()
+
+        if not self._ground_collision():
+            for bird in self.bird.sprites():
+                bird.fall()
 
     def handle_collision(self):
 
-        ground_collision = pygame.sprite.groupcollide(
-            self.ground_movement.ground, self.bird, False, False)
+        if self._ground_collision() or self._pipe_collision():
+            self._mixer.Sound.play(self._die_sound)
+            self._mixer.music.stop()
 
-        pipe_collision = pygame.sprite.groupcollide(
-            self.pipe_movement.pipe, self.bird, False, False
-            )
-        if ground_collision or pipe_collision:
             self.ground_movement.move = False
             self.pipe_movement.move = False
             self.pause = True
+
+    def _ground_collision(self):
+        ground_collision = pygame.sprite.groupcollide(
+        self.ground_movement.ground, self.bird, False, False)
+        return ground_collision
+
+    def _pipe_collision(self):
+        pipe_collision = pygame.sprite.groupcollide(self.pipe_movement.pipe, self.bird, False, False)
+        return pipe_collision
+        

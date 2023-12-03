@@ -12,7 +12,6 @@ class GameManager():
         self.gameplay_phase = Gameplay(screen_width, screen_height)
 
         self.game_phase = "start"
-        self.score = 0
 
     def handle_events(self):
         for event in pygame.event.get():
