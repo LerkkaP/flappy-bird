@@ -36,13 +36,16 @@ class Bird(pygame.sprite.Sprite):
 
         if self.velocity < 0:
             self.angle = 30
-            self.image = pygame.transform.rotate(self.image, self.angle)
+            self._rotate_bird()
         else:
             self.gravity = 0.3
             if self.angle >= -90:
                 self.angle -= 5
             self.image = self.sprites[1]
-            self.image = pygame.transform.rotate(self.image, self.angle)
+            self._rotate_bird()
+
+    def _rotate_bird(self):
+        self.image = pygame.transform.rotate(self.image, self.angle)
 
     def fly(self, dx, dy):
         self.rect.move_ip(dx, dy)

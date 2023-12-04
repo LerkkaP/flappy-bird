@@ -14,4 +14,6 @@
 | 27.11 | 2    | Refaktorointia ja pylintin käyttöönotto                           |
 | 28.11 | 6    | Refaktorointia, testaamista                                       |
 | 2.12  | 2    | Refaktorointia                                                    |
-| yht.  | 29   |
+| 3. 12 | 4    | Pisteiden lisääminen ja törmäyksien parantelu                     |
+| 4. 12 | 3    | Refaktorointia, pisteiden testaamista                             |
+| yht.  | 33   |
