@@ -57,6 +57,10 @@ Automaattinen formatointi
 poetry run invoke format
 ```
 
+## Viimeisin GitHub release
+
+Ohjelman viimeisimpään GitHub releaseen pääsee [täältä](https://github.com/LerkkaP/otharjoitustyo/releases/tag/viikko5)
+
 ## Pelin grafiikat
 
 Kaikki pelin grafiikat ja äänet ovat peräisin [täältä](https://github.com/samuelcust/flappy-bird-assets)
