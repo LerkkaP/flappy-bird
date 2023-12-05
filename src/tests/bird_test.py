@@ -15,7 +15,7 @@ class TestBird(unittest.TestCase):
     def test_if_bird_can_fly(self):
         self.bird.fly(0, -20)
 
-        self.assertEqual(self.bird.velocity, -7)
+        self.assertEqual(self.bird._velocity, -7)
 
         self.assertEqual(self.bird.rect.y, self.initial_y - 20)
         self.assertEqual(self.bird.rect.x, self.initial_x)

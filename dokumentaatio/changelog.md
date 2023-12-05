@@ -10,3 +10,9 @@
 - Putket lisätty peliin
 - Rakenteellisia muutoksia
 - Testejä lisätty esim. linnulle ja pelivaiheille
+
+## Viikko 5
+
+- Pistemäärän lisääminen
+- Pistelogiikan testaamista
+- Rakenteellisia muutoksia ja koodin parantelua

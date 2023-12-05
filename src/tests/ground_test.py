@@ -4,7 +4,6 @@ from movements.ground_movement import GroundMovement
 
 speed = 2
 screen_width = 480
-screen_height = 620
 ground_initial_x = 0
 ground_initial_y = 550
 
@@ -12,8 +11,8 @@ ground_initial_y = 550
 class TestGround(unittest.TestCase):
     def setUp(self):
         self.ground_sprite = Ground(
-            speed, screen_width, ground_initial_x, ground_initial_y)
-        self.ground_movement = GroundMovement(screen_width, screen_height)
+            speed, ground_initial_x, ground_initial_y)
+        self.ground_movement = GroundMovement(screen_width)
 
     def test_if_ground_is_moving(self):
         self.ground_sprite.update()

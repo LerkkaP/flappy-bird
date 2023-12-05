@@ -12,8 +12,8 @@ pipe_initial_y = 550
 class TestPipe(unittest.TestCase):
     def setUp(self):
         self.pipe_sprite = Pipe(
-            speed, screen_width, screen_height, pipe_initial_x, pipe_initial_y, False)
-        self.pipe_movement = PipeMovement(screen_width, screen_height)
+            speed, pipe_initial_x, pipe_initial_y, False)
+        self.pipe_movement = PipeMovement(screen_width)
 
     def test_if_pipes_are_moving(self):
         self.pipe_sprite.update()
