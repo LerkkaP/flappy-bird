@@ -4,9 +4,9 @@ from utils.asset_loader import AssetLoader
 
 class Start:
     def __init__(self, screen_width, screen_height):
-        self.screen_width = screen_width
-        self.screen_height = screen_height
-        self.ground_movement = GroundMovement(screen_width, screen_height)
+        self._screen_width = screen_width
+        self._screen_height = screen_height
+        self.ground_movement = GroundMovement(screen_width)
 
         self._init_start_message()
         self._init_hover_attributes()
@@ -14,8 +14,8 @@ class Start:
     def _init_start_message(self):
         self.start_message = AssetLoader.load_image("messages", "start.png")
         self.start_message_x = (
-            self.screen_width - self.start_message.get_width()) // 2
-        self.start_message_y = (self.screen_height -
+            self._screen_width - self.start_message.get_width()) // 2
+        self.start_message_y = (self._screen_height -
                                 self.start_message.get_height()) // 2
 
     def _init_hover_attributes(self):

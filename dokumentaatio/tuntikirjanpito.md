@@ -16,4 +16,4 @@
 | 2.12  | 2    | Refaktorointia                                                    |
 | 3. 12 | 4    | Pisteiden lisääminen ja törmäyksien parantelu                     |
 | 4. 12 | 3    | Refaktorointia, pisteiden testaamista                             |
-| yht.  | 33   |
+| yht.  | 36   |
