@@ -1,7 +1,7 @@
 import random
 import pygame
 from sprites.pipe import Pipe
-
+from utils.score import global_score
 
 class PipeMovement:
     def __init__(self, screen_width):
@@ -15,7 +15,6 @@ class PipeMovement:
         self._bottom_pipe_y = self._top_pipe_y + 320 + self._pipe_difference
         self.pipe = pygame.sprite.Group()
         self._initialize_pipes()
-        self._score = 0
 
     def _initialize_pipes(self):
         self.pipe.add(Pipe(self._speed,
@@ -36,15 +35,12 @@ class PipeMovement:
             self._add_pipe(self._screen_width, self._top_pipe_y, True)
 
     def update_score(self):
-        previous_score = self._score
+        previous_score = global_score.get_score()
         for single_pipe in self.pipe.sprites():
             if single_pipe.rect.left == self._screen_width / 3 + 20:
-                self._score += 1
+                global_score.increment_score()
 
-        return self._score != previous_score
-
-    def return_score(self):
-        return int(self._score / 2)
+        return global_score.get_score() != previous_score
 
     def check_collision(self, bird_group):
         pipe_collision = pygame.sprite.groupcollide(

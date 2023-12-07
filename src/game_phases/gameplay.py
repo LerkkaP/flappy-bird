@@ -4,7 +4,6 @@ from movements.ground_movement import GroundMovement
 from movements.pipe_movement import PipeMovement
 from utils.sound_manager import SoundManager
 
-
 class Gameplay:
     def __init__(self, screen_width, screen_height):
 
@@ -18,7 +17,6 @@ class Gameplay:
         self.ground_movement = GroundMovement(screen_width)
         self.pipe_movement = PipeMovement(screen_width)
         self.pause = False
-        self.score = 0
 
     def update(self):
         self.ground_movement.ground.update()
@@ -29,15 +27,8 @@ class Gameplay:
         score_updated = self.pipe_movement.update_score()
 
         if score_updated:
-            self.score = self._get_score()
             self._sound_manager.play_sound("point")
             self._sound_manager.stop_sound()
-
-    def _get_score(self):
-        return self.pipe_movement.return_score()
-
-    def get_current_score(self):
-        return self.score
 
     def handle_bird_fly(self, dx, dy):
         for bird in self.bird.sprites():

@@ -1,5 +1,6 @@
 import pygame
 from utils.asset_loader import AssetLoader
+from utils.score import global_score
 
 
 class Renderer:
@@ -55,10 +56,9 @@ class Renderer:
         self._game_manager.gameplay_phase.bird.draw(self._display)
 
     def _render_score(self):
-        score = self._game_manager.gameplay_phase.get_current_score()
-
-        scores = list(str(score))
-        for i, digit in enumerate(scores):
+        score = global_score.get_score()
+        score_digits = list(str(score))
+        for i, digit in enumerate(score_digits):
             image = AssetLoader.load_image("score", f"{digit}.png")
             self._display.blit(
                 image,
