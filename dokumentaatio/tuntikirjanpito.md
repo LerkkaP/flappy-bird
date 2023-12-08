@@ -17,4 +17,6 @@
 | 3.12  | 4    | Pisteiden lisääminen ja törmäyksien parantelu                     |
 | 4.12  | 3    | Refaktorointia, pisteiden testaamista                             |
 | 5.12  | 4    | Refaktorointia, sekvenssikaavio, luokkakaavio päivittäminen       |
-| yht.  | 41   |
+| 7.12  | 1    | Scoren refaktorointi                                              |
+| 8.12  | 1    | Refaktorointia, pistemäärä sekvenssikaavio päivittäminen          |
+| yht.  | 43   |

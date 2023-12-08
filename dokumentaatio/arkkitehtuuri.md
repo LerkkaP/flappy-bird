@@ -45,8 +45,6 @@ classDiagram
         + pause: bool
         + score: int
         + update()
-        - get_score()
-        + get_current_score()
         + handle_bird_fly(dx: int, dy: int)
         + handle_bird_fall()
         + handle_collision()
@@ -75,7 +73,6 @@ classDiagram
         - add_pipe()
         + update_pipe()
         + update_score()
-        + return_score()
         + check_collision()
     }
 
@@ -121,22 +118,16 @@ sequenceDiagram
     participant GameManager
     participant Gameplay
     participant PipeMovement
+    participant Score
 
     GameManager->>Gameplay: update()
     Gameplay->>PipeMovement: update_score()
-    PipeMovement->>PipeMovement: update score if conditions met
-    PipeMovement-->>Gameplay: True
-    Gameplay->>PipeMovement: return_score()
-    PipeMovement-->>Gameplay: score
-
-
+    PipeMovement->>Score: increment_score()
 
 ```
 
 Luokka `Gamemanager` kutsuu `Gameplay`-luokan metodia `update`, joka sisällään kutsuu `PipeMovement`-luokan metodia `update_score`. Metodi käy läpi jokaisen putken sprite-objektin
-ja jos putken vasemman reunan koordinaatti on yhtä suuri kuin linnun x-koordinaatti, se lisää yhden pisteen kokonaispistemäärään. Tämän jälkeen metodi palauttaa `Gameplay`-luokalle joko
-arvon `True` tai `False`, riippuen siitä päivitettiinkö pistemäärä vai ei. Jos palautusarvo on `True`, `Gameplay`-luokka kutsuu sisäistä metodia `_get_score`, joka taas kutsuu
-`PipeMovement`-luokan `return_score`-metodia, joka palauttaa pistemäärän oikeassa muodossa.
+ja jos putken vasemman reunan koordinaatti on yhtä suuri kuin linnun x-koordinaatti, se kutsuu `Score`-luokan metodia `increment_score`, joka lisää yhden pisteen kokonaispistemäärään. 
 
 Pistemäärän päivittymisessä on tärkeää huomioida se, että pistemäärä päivittyy putkien liikkeeseen perustuen, eikä varsinaisesti liity lintuun vaikka se tältä vaikuttaakin.
 Itse lintu ei pelissä liiku; sen x-koordinaatti pysyy vakiona. Liikkuvalla maalla ja putkilla luodaan illuusio ikään kuin lintu liikkuisi eteenpäin.

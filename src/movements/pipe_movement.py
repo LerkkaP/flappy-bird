@@ -2,6 +2,7 @@ import random
 import pygame
 from sprites.pipe import Pipe
 from utils.score import global_score
+from utils.sound_manager import SoundManager
 
 class PipeMovement:
     def __init__(self, screen_width):
@@ -10,6 +11,7 @@ class PipeMovement:
         self._pipe_initial_x = self._screen_width + 200
         self._speed = 2.5
         self._pipe_difference = 88
+        self._sound_manager = SoundManager()
 
         self._top_pipe_y = random.randint(-172, 0)
         self._bottom_pipe_y = self._top_pipe_y + 320 + self._pipe_difference
@@ -35,12 +37,10 @@ class PipeMovement:
             self._add_pipe(self._screen_width, self._top_pipe_y, True)
 
     def update_score(self):
-        previous_score = global_score.get_score()
         for single_pipe in self.pipe.sprites():
             if single_pipe.rect.left == self._screen_width / 3 + 20:
                 global_score.increment_score()
-
-        return global_score.get_score() != previous_score
+                self._sound_manager.play_sound("point")
 
     def check_collision(self, bird_group):
         pipe_collision = pygame.sprite.groupcollide(

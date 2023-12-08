@@ -40,7 +40,7 @@ class GameManager():
         if not self.gameplay_phase.pause:
             self.gameplay_phase.update()
             self.gameplay_phase.bird.update()
-            #self.gameplay_phase.handle_collision()
+            self.gameplay_phase.handle_collision()
 
         if not any(pygame.key.get_pressed()):
             self.gameplay_phase.handle_bird_fall()

@@ -18,6 +18,7 @@ class SoundManager:
     def play_sound(self, name):
         sound = self._sounds.get(name)
         sound.play()
+        self._stop_sound()
 
-    def stop_sound(self):
+    def _stop_sound(self):
         self._mixer.music.stop()

@@ -24,18 +24,13 @@ class Gameplay:
 
         self.pipe_movement.pipe.update()
         self.pipe_movement.update_pipe()
-        score_updated = self.pipe_movement.update_score()
-
-        if score_updated:
-            self._sound_manager.play_sound("point")
-            self._sound_manager.stop_sound()
+        self.pipe_movement.update_score()
 
     def handle_bird_fly(self, dx, dy):
         for bird in self.bird.sprites():
             bird.fly(dx, dy)
 
         self._sound_manager.play_sound("wing")
-        self._sound_manager.stop_sound()
 
     def handle_bird_fall(self):
 
@@ -49,7 +44,6 @@ class Gameplay:
 
         if ground_collision or pipe_collision:
             self._sound_manager.play_sound("die")
-            self._sound_manager.stop_sound()
 
             self.ground_movement.move = False
             self.pipe_movement.move = False
