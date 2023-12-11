@@ -46,6 +46,9 @@ class Bird(pygame.sprite.Sprite):
     def _rotate_bird(self):
         self.image = pygame.transform.rotate(self.image, self._angle)
 
+    def rotate_bird(self):
+        self.image = pygame.transform.rotate(self.image, -120)
+
     def fly(self, dx, dy):
         self.rect.move_ip(dx, dy)
         self._velocity = -7

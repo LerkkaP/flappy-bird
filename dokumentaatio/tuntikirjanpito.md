@@ -19,4 +19,6 @@
 | 5.12  | 4    | Refaktorointia, sekvenssikaavio, luokkakaavio päivittäminen       |
 | 7.12  | 1    | Scoren refaktorointi                                              |
 | 8.12  | 1    | Refaktorointia, pistemäärä sekvenssikaavio päivittäminen          |
+| 10.12 | 2    | Refaktorointia
+| 11.12 | 2    | Refaktorointia, tietojen talletus tietokantaan
 | yht.  | 43   |

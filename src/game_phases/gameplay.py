@@ -3,6 +3,8 @@ from sprites.bird import Bird
 from movements.ground_movement import GroundMovement
 from movements.pipe_movement import PipeMovement
 from utils.sound_manager import SoundManager
+from utils.phase_manager import PhaseManager
+from game_phases.end import End
 
 class Gameplay:
     def __init__(self, screen_width, screen_height):
@@ -13,10 +15,11 @@ class Gameplay:
         self.bird.add(Bird(160,self._screen_height / 2))
 
         self._sound_manager = SoundManager()
+        self.end_phase = End(screen_width)
 
         self.ground_movement = GroundMovement(screen_width)
         self.pipe_movement = PipeMovement(screen_width)
-        self.pause = False
+        self.phase_manager = PhaseManager()
 
     def update(self):
         self.ground_movement.ground.update()
@@ -47,4 +50,11 @@ class Gameplay:
 
             self.ground_movement.move = False
             self.pipe_movement.move = False
-            self.pause = True
+            self.phase_manager.set_phase("end")
+            self.end_phase.save_score_to_database()
+
+            if pipe_collision:
+                for bird in self.bird:
+                    bird.rotate_bird()
+
+    
