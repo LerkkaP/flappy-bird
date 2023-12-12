@@ -11,7 +11,7 @@
 - [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 - [Changelog](dokumentaatio/changelog.md)
 - [Arkkitehtuuri](dokumentaatio/arkkitehtuuri.md)
-- [GithubRelease](https://github.com/LerkkaP/otharjoitustyo/releases/tag/viikko5)
+- [GithubRelease](https://github.com/LerkkaP/otharjoitustyo/releases/tag/viikko6)
 
 ## Käyttöönotto
 
