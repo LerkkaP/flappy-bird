@@ -22,8 +22,10 @@ Sovellus on pygame -kirjastolla toteutettu **Flappy Bird** -tyylinen _peli_. Pel
 
 ### Lopputilanne
 
-- Näytetään saatu tulos ja kaikkien aikojen paras tulos
-- Pelin voi aloittaa uudestaan painamalla **restart** painiketta tai **space-näppäintä**
+- Pisteet tallennetaan tietokantaan &#9745;
+- Näytetään saatu tulos ja kaikkien aikojen paras tulos &#9745;
+- Pelin voi aloittaa uudestaan painamalla **restart** painiketta &#9745;
+- **statistics** painikkeesta voi nähdä tilastoja
 
 ## Jatkokehitysideoita
 

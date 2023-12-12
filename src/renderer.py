@@ -24,13 +24,12 @@ class Renderer:
         self._display.blit(background_image, (0, 0))
 
     def render_phase(self):
-        if self.phase_manager.current_phase() == "start":
+        if self.phase_manager.game_in_start():
             self._render_start_phase()
-        elif self.phase_manager.current_phase() == "gameplay":
+        elif self.phase_manager.game_in_gameplay():
             self._render_gameplay_phase()
-        elif self.phase_manager.current_phase() == "end":
+        elif self.phase_manager.game_in_end():
             self._render_end_phase()
-
 
     def _render_gameplay_phase(self):
         self._render_pipes()
@@ -48,8 +47,7 @@ class Renderer:
         self._render_bird()
         self._render_end_message()
         self._render_end_scores()
-        self._render_restart_button()
-        self._render_statistics_button()
+        self._render_buttons()
 
     def _render_start_message(self):
         hover_offset_y = self._game_manager.start_phase.start_message_y + \
@@ -99,20 +97,12 @@ class Renderer:
         self._render_score()
         self._render_highest_score()
 
-    def _render_restart_button(self):
-        text = self._end_phase.restart_text
-        textRect = self._end_phase.restart_text_rect
-        
-        self._display.blit(text, textRect)
+    def _render_buttons(self):
+        text_restart = self._end_phase.restart_text
+        text_rect_restart = self._end_phase.restart_text_rect
 
-    def _render_statistics_button(self):
-        font = pygame.font.Font('freesansbold.ttf', 25)
-
-        text = font.render('FIGURES', True, (255, 255, 255), (240, 175, 53))
+        text_stats = self._end_phase.statistics_text
+        text_rect_stats = self._end_phase.statistics_text_rect
         
-        textRect = text.get_rect()
-        
-        textRect.left = self._screen_width / 2 + 10
-        textRect.y = self._screen_height - 200 
-
-        self._display.blit(text, textRect)
+        self._display.blit(text_restart, text_rect_restart)
+        self._display.blit(text_stats, text_rect_stats)

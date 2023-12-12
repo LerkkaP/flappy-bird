@@ -3,7 +3,15 @@ from utils.asset_loader import AssetLoader
 
 
 class SoundManager:
+    """Class that handles sound related tasks
+
+    Attributes:
+        _mixer: Pygame mixer instance responsible for sound playback
+        _sounds: dictionary that contains the loaded sounds
+    """
     def __init__(self):
+        """Constructor that initializes the sound manager
+        """
         self._mixer = pygame.mixer
         self._mixer.init()
         self._sounds = {
@@ -16,9 +24,16 @@ class SoundManager:
             sound.set_volume(0.2)
 
     def play_sound(self, name):
+        """Plays the given sound
+
+        Args:
+            name: Sound to be played
+        """
         sound = self._sounds.get(name)
         sound.play()
         self._stop_sound()
 
     def _stop_sound(self):
+        """Stops the sound
+        """
         self._mixer.music.stop()

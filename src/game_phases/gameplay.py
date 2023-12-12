@@ -7,7 +7,25 @@ from utils.phase_manager import PhaseManager
 from game_phases.end import End
 
 class Gameplay:
+    """Class for managing the gameplay phase of the game
+    
+    Attributes:
+        _screen_height: Height of the screen
+        _bird: Pygame sprite group for bird objects
+        _sound_manager: Instance of SoundManager class
+        _end_phase: Instance of End class
+        ground_movement: Instance of GroundMovement class
+        pipe_movement: Instance of PipeMovement class
+        phase_manager: Instance of Phase_manager class
+    """
     def __init__(self, screen_width, screen_height):
+        """Initialize gameplay phase
+        """
+
+        """Args:
+            screen_widht: Width of the screen
+            screen_height: Height of the screen
+        """
 
         self._screen_height = screen_height
 
@@ -22,6 +40,8 @@ class Gameplay:
         self.phase_manager = PhaseManager()
 
     def update(self):
+        """Update elements related to gameplay phase
+        """
         self.ground_movement.ground.update()
         self.ground_movement.update_ground()
 
@@ -30,18 +50,28 @@ class Gameplay:
         self.pipe_movement.update_score()
 
     def handle_bird_fly(self, dx, dy):
+        """Handle bird's flying movement
+
+        Args:
+            dx: Horizontal movement --> This stays constant
+            dy: Vertical movement
+        """
         for bird in self.bird.sprites():
             bird.fly(dx, dy)
 
         self._sound_manager.play_sound("wing")
 
     def handle_bird_fall(self):
+        """Handle bird's falling movement
+        """
 
         if not self.ground_movement.check_collision(self.bird):
             for bird in self.bird.sprites():
                 bird.fall()
 
     def handle_collision(self):
+        """Handle collision related logic
+        """
         ground_collision = self.ground_movement.check_collision(self.bird)
         pipe_collision = self.pipe_movement.check_collision(self.bird)
 
@@ -56,3 +86,9 @@ class Gameplay:
             if pipe_collision:
                 for bird in self.bird:
                     bird.rotate_bird()
+
+    def reset_bird(self):
+        """Reset the bird's position
+        """
+        for bird in self.bird:
+            bird.reset_position(160, 620 / 2)
