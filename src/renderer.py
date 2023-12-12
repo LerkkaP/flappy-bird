@@ -2,7 +2,7 @@ import pygame
 from utils.asset_loader import AssetLoader
 from utils.score import Score
 from utils.phase_manager import PhaseManager
-from game_phases.end import get_highest_score
+from game_phases.end import get_highest_score, End
 
 
 class Renderer:
@@ -13,6 +13,7 @@ class Renderer:
         self._game_manager = game_manager
         self.phase_manager = PhaseManager()
         self.score = Score()
+        self._end_phase = End(screen_width)
 
     def render_background(self):
         background_image = AssetLoader.load_image(
@@ -47,8 +48,9 @@ class Renderer:
         self._render_bird()
         self._render_end_message()
         self._render_end_scores()
+        self._render_restart_button()
+        self._render_statistics_button()
 
-        # render score
     def _render_start_message(self):
         hover_offset_y = self._game_manager.start_phase.start_message_y + \
             self._game_manager.start_phase.current_hover
@@ -97,3 +99,20 @@ class Renderer:
         self._render_score()
         self._render_highest_score()
 
+    def _render_restart_button(self):
+        text = self._end_phase.restart_text
+        textRect = self._end_phase.restart_text_rect
+        
+        self._display.blit(text, textRect)
+
+    def _render_statistics_button(self):
+        font = pygame.font.Font('freesansbold.ttf', 25)
+
+        text = font.render('FIGURES', True, (255, 255, 255), (240, 175, 53))
+        
+        textRect = text.get_rect()
+        
+        textRect.left = self._screen_width / 2 + 10
+        textRect.y = self._screen_height - 200 
+
+        self._display.blit(text, textRect)

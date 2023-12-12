@@ -47,3 +47,9 @@ class PipeMovement:
         pipe_collision = pygame.sprite.groupcollide(
             self.pipe, bird_group, False, False)
         return pipe_collision
+    
+    def reset_pipes(self):
+        self.pipe.empty()
+        self._top_pipe_y = random.randint(-172, 0)
+        self._bottom_pipe_y = self._top_pipe_y + 320 + self._pipe_difference
+        self._initialize_pipes()

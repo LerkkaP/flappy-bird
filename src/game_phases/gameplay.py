@@ -56,5 +56,3 @@ class Gameplay:
             if pipe_collision:
                 for bird in self.bird:
                     bird.rotate_bird()
-
-    

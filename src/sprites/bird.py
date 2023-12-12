@@ -55,3 +55,11 @@ class Bird(pygame.sprite.Sprite):
 
     def fall(self):
         self.rect.move_ip(0, 3)
+
+    def reset_position(self, x, y):
+            
+        self.rect.x = x
+        self.rect.y = y
+        self._velocity = 0  
+        self._gravity = 0.2
+        self._angle = 30

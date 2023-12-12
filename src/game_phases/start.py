@@ -1,3 +1,4 @@
+import pygame
 from movements.ground_movement import GroundMovement
 from utils.asset_loader import AssetLoader
 
