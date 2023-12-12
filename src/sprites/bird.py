@@ -69,11 +69,6 @@ class Bird(pygame.sprite.Sprite):
         """
         self.image = pygame.transform.rotate(self.image, self._angle)
 
-    def rotate_bird(self):
-        """Rotates the bird
-        """
-        self.image = pygame.transform.rotate(self.image, -120)
-
     def fly(self, dx, dy):
         """Handles the bird's upward movement"""
         self.rect.move_ip(dx, dy)

@@ -6,6 +6,7 @@
 classDiagram
     GameManager --> Start
     GameManager --> Gameplay
+    GameManager --> End
 
     Gameplay --> GroundMovement
     Gameplay --> PipeMovement
@@ -15,13 +16,20 @@ classDiagram
     PipeMovement --> Pipe
     GroundMovement --> Ground
 
+    End --> TinyDB
+
     class GameManager {
         + start_phase: Start
         + gameplay_phase: Gameplay
-        + game_phase: start
+        + end_phase: End
+        + phase_manager: PhaseManager
+        + score: Score()
         + handle_events()
         - handle_gameplay_events(event)
-        - start_gameplay()
+        - handle_start_events(event)
+        - handle_gameplay_phase_events(event)
+        - handle_end_events(event)
+        - restart_game()
         + handle_game_state()
         - update_gameplay()
     }
@@ -42,12 +50,29 @@ classDiagram
         - sound_manager: SoundManager()
         + ground_movement: GroundMovement
         + pipe_movement: PipeMovement
-        + pause: bool
-        + score: int
         + update()
         + handle_bird_fly(dx: int, dy: int)
         + handle_bird_fall()
         + handle_collision()
+        + reset_bird()
+    }
+
+    class End {
+        - screen_width: int
+        + score: Score()
+        - init_end_message()
+        - init_restart_button()
+        - init_statistics_button()
+        - init_end_message()
+        + handle_restart_click()
+        + save_score_to_database()
+        + get_highest_score_from_database()
+    }
+
+    class TinyDB {
+        + save_score(score)
+        + get_highest_score()
+        + get_all_scores()
     }
 
     class GroundMovement {
@@ -67,13 +92,15 @@ classDiagram
         - pipe_difference: int
         - top_pipe_y: int
         - bottom_pipe_y: int
+        - sound_manager: SoundManager()
         + pipe: pygame.sprite.Group()
-        - score: int
+        - score: Score()
         - initialize_pipes()
         - add_pipe()
         + update_pipe()
         + update_score()
         + check_collision()
+        + reset_pipes()
     }
 
     class Pipe {
@@ -105,6 +132,8 @@ classDiagram
         - rotate_bird()
         + fly(dx: int, dy: int)
         + fall()
+        + reset_position()
+
     }
 
 ```

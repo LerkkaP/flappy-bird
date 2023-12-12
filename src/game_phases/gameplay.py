@@ -83,10 +83,6 @@ class Gameplay:
             self.phase_manager.set_phase("end")
             self.end_phase.save_score_to_database()
 
-            if pipe_collision:
-                for bird in self.bird:
-                    bird.rotate_bird()
-
     def reset_bird(self):
         """Reset the bird's position
         """

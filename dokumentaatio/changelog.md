@@ -16,3 +16,9 @@
 - Pistemäärän lisääminen
 - Pistelogiikan testaamista
 - Rakenteellisia muutoksia ja koodin parantelua
+
+## Viikko 6
+
+- Tietojen talletus tietokantaan
+- Restart painikkeen luominen
+- Refaktorointia
