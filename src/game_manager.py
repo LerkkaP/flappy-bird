@@ -5,6 +5,7 @@ from game_phases.end import End
 from utils.phase_manager import PhaseManager
 from utils.score import Score
 
+
 class GameManager():
     def __init__(self, screen_width, screen_height):
         self.start_phase = Start(screen_width, screen_height)
@@ -71,4 +72,3 @@ class GameManager():
 
         if not any(pygame.key.get_pressed()):
             self.gameplay_phase.handle_bird_fall()
-

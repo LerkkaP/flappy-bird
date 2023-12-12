@@ -13,6 +13,7 @@ class Pipe(pygame.sprite.Sprite):
         y: Y-coordinate of the pipe's starting position
         flip: Boolean value indicating whether the pipe needs to be flipped
     """
+
     def __init__(self, speed, x, y, flip):
         """Initialize pipe object
 

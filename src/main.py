@@ -9,7 +9,7 @@ display = pygame.display.set_mode((screen_width, screen_height))
 clock = pygame.time.Clock()
 # set PyGame icon
 icon = AssetLoader().load_image("icon", "favicon.ico")
-pygame.display.set_icon(icon) 
+pygame.display.set_icon(icon)
 # set PyGame window caption
 pygame.display.set_caption('Flappy Bird')
 

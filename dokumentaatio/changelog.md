@@ -21,4 +21,5 @@
 
 - Tietojen talletus tietokantaan
 - Restart painikkeen luominen
+- Testaamista
 - Refaktorointia

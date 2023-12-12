@@ -16,6 +16,7 @@ class Bird(pygame.sprite.Sprite):
         _angle: Current angle representing the bird's tilt
 
     """
+
     def __init__(self, x, y):
         """Initialize bird object
 
@@ -86,9 +87,9 @@ class Bird(pygame.sprite.Sprite):
             x: The x-coordinate to reset to
             y: The y-coordinate to reset to
         """
-            
+
         self.rect.x = x
         self.rect.y = y
-        self._velocity = 0  
+        self._velocity = 0
         self._gravity = 0.2
         self._angle = 30

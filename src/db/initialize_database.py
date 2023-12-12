@@ -1,9 +1,9 @@
 import os
 from tinydb import TinyDB
 
-"""Database initialization"""
 dirname = os.path.dirname(__file__)
 db = TinyDB(os.path.join(dirname, "..", "data", "scores.json"))
+
 
 def get_database_connection():
     """Returns database

@@ -54,11 +54,15 @@ class Renderer:
             self._game_manager.start_phase.current_hover
         self._display.blit(self._game_manager.start_phase.start_message,
                            (self._game_manager.start_phase.start_message_x, hover_offset_y))
-        
-    def _render_end_message(self):
-        self._display.blit(self._game_manager.end_phase.end_message,
-                           (self._game_manager.end_phase.end_message_x, self._game_manager.end_phase.end_message_y))
 
+    def _render_end_message(self):
+        self._display.blit(
+            self._game_manager.end_phase.end_message,
+            (
+                self._game_manager.end_phase.end_message_x,
+                self._game_manager.end_phase.end_message_y
+            )
+        )
 
     def _render_ground(self, phase):
         if phase == "gameplay":
@@ -92,7 +96,7 @@ class Renderer:
             self._display.blit(
                 image,
                 ((self._screen_width - image.get_width()) // 2 + i * 21, 200))
-            
+
     def _render_end_scores(self):
         self._render_score()
         self._render_highest_score()
@@ -103,6 +107,6 @@ class Renderer:
 
         text_stats = self._end_phase.statistics_text
         text_rect_stats = self._end_phase.statistics_text_rect
-        
+
         self._display.blit(text_restart, text_rect_restart)
         self._display.blit(text_stats, text_rect_stats)

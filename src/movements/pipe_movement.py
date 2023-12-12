@@ -4,6 +4,7 @@ from sprites.pipe import Pipe
 from utils.score import Score
 from utils.sound_manager import SoundManager
 
+
 class PipeMovement:
     """Class responsible for the pipe movement
 
@@ -11,13 +12,16 @@ class PipeMovement:
         _screen_width: Width of the screen
         _pipe_initial_x: Initial x-coordinate of pipe object
         _speed: Speed in which the pipe object is moving --> controls the x-coordinate
-        _pipe_difference: The difference between top and bottom pipes --> the whole between the pipes
+        _pipe_difference: The difference between top and bottom pipes
+        --> the whole between the pipes
         _sound_manager: Instance of the SoundManager class
         score : Instance of the Score class
-        _top_pipe_y: Y-coordinate for the top pipe --> random number between -172 and 0 for the starting position
+        _top_pipe_y: Y-coordinate for the top pipe --> 
+        random number between -172 and 0 for the starting position
         _bottom_pipe_y: Y-coordinate for the bottom pipe, calculated with the help of top pipe
         _pipe = Pygame sprite group for pipe objects
     """
+
     def __init__(self, screen_width):
         """Initialize pipe movement
 
@@ -95,7 +99,7 @@ class PipeMovement:
         pipe_collision = pygame.sprite.groupcollide(
             self.pipe, bird_group, False, False)
         return pipe_collision
-    
+
     def reset_pipes(self):
         """Resets the pipe positions and group at the start of a new game"""
 

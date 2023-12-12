@@ -21,5 +21,5 @@
 | 8.12  | 1    | Refaktorointia, pistemäärä sekvenssikaavio päivittäminen          |
 | 10.12 | 2    | Refaktorointia
 | 11.12 | 2    | Refaktorointia, tietojen talletus tietokantaan
-| 12.12 | 3 + 3    | Refaktorointia, Restart painikkeen luominen
-| yht.  | 43   |
+| 12.12 | 6    | Refaktorointia, Restart painikkeen luominen, testaamista
+| yht.  | 53   |

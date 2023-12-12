@@ -1,4 +1,3 @@
-import pygame
 from movements.ground_movement import GroundMovement
 from utils.asset_loader import AssetLoader
 
@@ -13,9 +12,10 @@ class Start:
             _init_start_message: Initializes the attributes related to start message
             _init_hover_attributes: Initializes the attributes related to start message hovering
     """
+
     def __init__(self, screen_width, screen_height):
         """Initialize start phase
-        
+
         Args:
             screen_width: Width of the screen
             screen_height: Height of the screen

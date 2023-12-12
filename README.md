@@ -7,6 +7,7 @@
 ## Dokumentaatio
 
 - [Vaatimusmäärittely](dokumentaatio/vaatimusmaarittely.md)
+- [Käyttöohje](dokumentaatio/kayttoohje.md)
 - [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 - [Changelog](dokumentaatio/changelog.md)
 - [Arkkitehtuuri](dokumentaatio/arkkitehtuuri.md)

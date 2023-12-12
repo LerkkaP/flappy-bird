@@ -6,9 +6,10 @@ from utils.sound_manager import SoundManager
 from utils.phase_manager import PhaseManager
 from game_phases.end import End
 
+
 class Gameplay:
     """Class for managing the gameplay phase of the game
-    
+
     Attributes:
         _screen_height: Height of the screen
         _bird: Pygame sprite group for bird objects
@@ -18,19 +19,19 @@ class Gameplay:
         pipe_movement: Instance of PipeMovement class
         phase_manager: Instance of Phase_manager class
     """
+
     def __init__(self, screen_width, screen_height):
         """Initialize gameplay phase
-        """
 
-        """Args:
-            screen_widht: Width of the screen
+        Args:
+            screen_width: Width of the screen
             screen_height: Height of the screen
         """
 
         self._screen_height = screen_height
 
         self.bird = pygame.sprite.Group()
-        self.bird.add(Bird(160,self._screen_height / 2))
+        self.bird.add(Bird(160, self._screen_height / 2))
 
         self._sound_manager = SoundManager()
         self.end_phase = End(screen_width)

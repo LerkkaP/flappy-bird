@@ -14,7 +14,7 @@ class Score():
     def increment_score(self):
         """Increment score by one
         """
-        
+
         self.score += 1
 
     def get_score(self):
@@ -24,9 +24,8 @@ class Score():
             Returns score in correct format
         """
         return int(self.score / 2)
-    
+
     def reset_score(self):
         """Resets score
         """
         self.score = 0
-

@@ -9,6 +9,7 @@ class SoundManager:
         _mixer: Pygame mixer instance responsible for sound playback
         _sounds: dictionary that contains the loaded sounds
     """
+
     def __init__(self):
         """Constructor that initializes the sound manager
         """

@@ -12,13 +12,14 @@ class GroundMovement:
         _speed: Speed in which the ground object moves --> controls the x-coordinate
         _ground: Pygame sprite group 
     """
+
     def __init__(self, screen_width):
         """Initialize ground movement
 
         Args:
             screen_width: Width of the screen
         """
-    
+
         self._screen_width = screen_width
 
         self._ground_initial_x = 0
