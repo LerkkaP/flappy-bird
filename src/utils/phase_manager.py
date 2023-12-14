@@ -42,3 +42,6 @@ class PhaseManager():
             bool: True if the game is in the end phase, else False
         """
         return self._phase == "end"
+
+    def game_in_stats(self):
+        return self._phase == "stats"

@@ -6,10 +6,11 @@ authors = ["Your Name <you@example.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 pygame = "^2.5.2"
 invoke = "^2.2.0"
 tinydb = "^4.8.0"
+matplotlib = "^3.8.2"
 
 
 [tool.poetry.group.dev.dependencies]

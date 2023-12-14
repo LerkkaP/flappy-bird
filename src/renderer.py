@@ -3,6 +3,7 @@ from utils.asset_loader import AssetLoader
 from utils.score import Score
 from utils.phase_manager import PhaseManager
 from game_phases.end import get_highest_score, End
+from game_phases.stats import Stats
 
 
 class Renderer:
@@ -14,6 +15,7 @@ class Renderer:
         self.phase_manager = PhaseManager()
         self.score = Score()
         self._end_phase = End(screen_width)
+        self.stats = Stats()
 
     def render_background(self):
         background_image = AssetLoader.load_image(
@@ -30,6 +32,8 @@ class Renderer:
             self._render_gameplay_phase()
         elif self.phase_manager.game_in_end():
             self._render_end_phase()
+        elif self.phase_manager.game_in_stats():
+            self._render_stats_phase()
 
     def _render_gameplay_phase(self):
         self._render_pipes()
@@ -40,6 +44,9 @@ class Renderer:
     def _render_start_phase(self):
         self._render_start_message()
         self._render_ground("start")
+
+    def _render_stats_phase(self):
+        self._display.blit(self.stats.draw_graph(), (0, 0))  
 
     def _render_end_phase(self):
         self._render_pipes()

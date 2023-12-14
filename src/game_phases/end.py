@@ -59,7 +59,7 @@ class End:
         self.end_message_y = 150
 
     def handle_restart_click(self, mouse_pos):
-        """_summary_
+        """Handles the clicking of the restart button
 
         Args:
             mouse_pos: Cursor position
@@ -70,6 +70,21 @@ class End:
         if self.restart_text_rect.collidepoint(mouse_pos):
             return True
         return False
+    
+    def handle_statistics_click(self, mouse_pos):
+        """Handles the clicking of the figures button
+
+        Args:
+            mouse_pos: Cursor position
+
+        Returns:
+            bool: True if cursor position collides with the figures text, else False
+        """
+        if self.statistics_text_rect.collidepoint(mouse_pos):
+            return True
+        return False
+    
+    
 
     def save_score_to_database(self):
         """Saves score to database

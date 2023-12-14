@@ -48,6 +48,8 @@ class GameManager():
                 mouse_pos = pygame.mouse.get_pos()
                 if self.end_phase.handle_restart_click(mouse_pos):
                     self._restart_game()
+                elif self.end_phase.handle_statistics_click(mouse_pos):
+                    self._handle_stats()
 
     def _restart_game(self):
         self.phase_manager.set_phase("start")
@@ -55,6 +57,9 @@ class GameManager():
         self.gameplay_phase.pipe_movement.reset_pipes()
         self.score.reset_score()
 
+    def _handle_stats(self):
+        self.phase_manager.set_phase("stats")
+        
     def handle_game_state(self):
         if self.phase_manager.game_in_start():
             self.start_phase.update()

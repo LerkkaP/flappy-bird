@@ -22,4 +22,5 @@
 | 10.12 | 2    | Refaktorointia
 | 11.12 | 2    | Refaktorointia, tietojen talletus tietokantaan
 | 12.12 | 6    | Refaktorointia, Restart painikkeen luominen, testaamista
+| 14.12 | 1    | Matplotlib perehtyminen
 | yht.  | 53   |
