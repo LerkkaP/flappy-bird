@@ -46,7 +46,7 @@ class Renderer:
         self._render_ground("start")
 
     def _render_stats_phase(self):
-        self._display.blit(self.stats.draw_graph(), (0, 0))  
+        self._display.blit(self.stats.draw_graph(), ((self._screen_width - 400) // 2, 10))  
 
     def _render_end_phase(self):
         self._render_pipes()

@@ -44,7 +44,7 @@ class End:
         """
         self.font = pygame.font.Font('freesansbold.ttf', 25)
         self.statistics_text = self.font.render(
-            'FIGURES', True, (255, 255, 255), (240, 175, 53))
+            'STATS', True, (255, 255, 255), (240, 175, 53))
         self.statistics_text_rect = self.statistics_text.get_rect()
         self.statistics_text_rect.left = self._screen_width / 2 + 10
         self.statistics_text_rect.y = 620 - 200

@@ -23,4 +23,5 @@
 | 11.12 | 2    | Refaktorointia, tietojen talletus tietokantaan
 | 12.12 | 6    | Refaktorointia, Restart painikkeen luominen, testaamista
 | 14.12 | 1    | Matplotlib perehtyminen
+| 15.12 | 2    | Stats sivun parantamista
 | yht.  | 53   |

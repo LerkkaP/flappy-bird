@@ -31,3 +31,12 @@ def get_all_scores():
     """
     scores = db.all()
     return scores
+
+def get_number_of_items():
+    scores = get_all_scores()
+    return len(scores)
+
+def get_list_of_scores():
+    scores = get_all_scores()
+    return [score["score"] for score in scores]
+
