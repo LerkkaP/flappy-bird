@@ -5,6 +5,24 @@ import pygame
 from db.database_actions import get_highest_score, get_number_of_items, get_list_of_scores
 
 class Stats():
+    def __init__(self):
+
+        self._init_back_button()
+
+
+    def _init_back_button(self):
+        """Initialize back button attributes"""
+        self.font = pygame.font.Font('freesansbold.ttf', 25)
+        self.back_text = self.font.render(
+            'BACK', True, (255, 255, 255), (240, 175, 53))
+        self.back_text_rect = self.back_text.get_rect()
+        self.back_text_rect.center = (480 // 2, 600)
+
+    def handle_back_click(self, mouse_pos):
+        """Handles the clicking of the back button"""
+        if self.back_text_rect.collidepoint(mouse_pos):
+            return True
+        return False
 
     def _initialize_graph(self):
         '''Initialize graph'''
@@ -15,9 +33,9 @@ class Stats():
     
     def _set_graph_properties(self, ax):
         ax.plot(get_list_of_scores())
-        ax.set_title("Pisteiden kehittyminen")
-        ax.set_xlabel('Pelikerta', fontsize=10)
-        ax.set_ylabel('Pisteet', fontsize=10)
+        ax.set_title("Development of scores")
+        ax.set_xlabel('Session', fontsize=10)
+        ax.set_ylabel('Scores', fontsize=10)
         ax.set_ylim(0, get_highest_score())
         ax.set_xlim(1, get_number_of_items())
         ax.xaxis.set_major_locator(pylab.MultipleLocator(1))

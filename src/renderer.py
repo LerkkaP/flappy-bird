@@ -47,6 +47,7 @@ class Renderer:
 
     def _render_stats_phase(self):
         self._display.blit(self.stats.draw_graph(), ((self._screen_width - 400) // 2, 10))  
+        self._render_back_button()
 
     def _render_end_phase(self):
         self._render_pipes()
@@ -117,3 +118,9 @@ class Renderer:
 
         self._display.blit(text_restart, text_rect_restart)
         self._display.blit(text_stats, text_rect_stats)
+
+    def _render_back_button(self):
+        text_back = self.stats.back_text
+        text_rect_back = self.stats.back_text_rect
+
+        self._display.blit(text_back, text_rect_back)

@@ -24,4 +24,5 @@
 | 12.12 | 6    | Refaktorointia, Restart painikkeen luominen, testaamista
 | 14.12 | 1    | Matplotlib perehtyminen
 | 15.12 | 2    | Stats sivun parantamista
+| 16.12 | 1    | Back painikkeen lisääminen
 | yht.  | 53   |

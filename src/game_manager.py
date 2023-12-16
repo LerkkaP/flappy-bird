@@ -2,6 +2,7 @@ import pygame
 from game_phases.start import Start
 from game_phases.gameplay import Gameplay
 from game_phases.end import End
+from game_phases.stats import Stats
 from utils.phase_manager import PhaseManager
 from utils.score import Score
 
@@ -11,6 +12,7 @@ class GameManager():
         self.start_phase = Start(screen_width, screen_height)
         self.gameplay_phase = Gameplay(screen_width, screen_height)
         self.end_phase = End(screen_width)
+        self.stats_phase = Stats()
         self.phase_manager = PhaseManager()
         self.score = Score()
 
@@ -50,6 +52,9 @@ class GameManager():
                     self._restart_game()
                 elif self.end_phase.handle_statistics_click(mouse_pos):
                     self._handle_stats()
+                elif self.stats_phase.handle_back_click(mouse_pos):
+                    self.phase_manager.set_phase("end")
+
 
     def _restart_game(self):
         self.phase_manager.set_phase("start")
