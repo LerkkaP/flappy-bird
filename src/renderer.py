@@ -39,14 +39,14 @@ class Renderer:
         self._render_pipes()
         self._render_ground("gameplay")
         self._render_bird()
-        self._render_score()
+        self._render_score(50)
 
     def _render_start_phase(self):
         self._render_start_message()
         self._render_ground("start")
 
     def _render_stats_phase(self):
-        self._display.blit(self.stats.draw_graph(), ((self._screen_width - 400) // 2, 10))  
+        self._display.blit(self.stats.draw_graph(), ((self._screen_width - 400) // 2, 100))  
         self._render_back_button()
 
     def _render_end_phase(self):
@@ -87,14 +87,14 @@ class Renderer:
     def _render_bird(self):
         self._game_manager.gameplay_phase.bird.draw(self._display)
 
-    def _render_score(self):
+    def _render_score(self, y):
         score = self.score.get_score()
         score_digits = list(str(score))
         for i, digit in enumerate(score_digits):
             image = AssetLoader.load_image("score", f"{digit}.png")
             self._display.blit(
                 image,
-                ((self._screen_width - image.get_width()) // 2 + i * 21, 50))
+                ((self._screen_width - image.get_width()) // 2 + i * 21, y))
 
     def _render_highest_score(self):
         highest_score = get_highest_score()
@@ -103,10 +103,23 @@ class Renderer:
             image = AssetLoader.load_image("score", f"{digit}.png")
             self._display.blit(
                 image,
-                ((self._screen_width - image.get_width()) // 2 + i * 21, 200))
+                ((self._screen_width - image.get_width()) // 2 + i * 21, 270))
 
     def _render_end_scores(self):
-        self._render_score()
+        score_text_surface = self._end_phase.font.render(
+            'Score', True, (255, 153, 51))
+        score_text_rect = score_text_surface.get_rect()
+        score_text_rect.center = ((self._screen_width / 2), 150)
+        self._display.blit(score_text_surface, score_text_rect)
+
+        self._render_score(170)
+
+        best_text_surface = self._end_phase.font.render(
+            'Best', True, (255, 153, 51))
+        best_text_rect = best_text_surface.get_rect()
+        best_text_rect.center = ((self._screen_width / 2), 250)
+        self._display.blit(best_text_surface, best_text_rect)
+
         self._render_highest_score()
 
     def _render_buttons(self):

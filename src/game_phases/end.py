@@ -34,7 +34,7 @@ class End:
         """
         self.font = pygame.font.Font('freesansbold.ttf', 25)
         self.restart_text = self.font.render(
-            'RESTART', True, (255, 255, 255), (240, 175, 53))
+            'RESTART', True, (255, 255, 255), (255, 153, 51))
         self.restart_text_rect = self.restart_text.get_rect()
         self.restart_text_rect.right = (self._screen_width / 2) - 10
         self.restart_text_rect.y = 620 - 200
@@ -44,7 +44,7 @@ class End:
         """
         self.font = pygame.font.Font('freesansbold.ttf', 25)
         self.statistics_text = self.font.render(
-            'STATS', True, (255, 255, 255), (240, 175, 53))
+            'STATS', True, (255, 255, 255), (255, 153, 51))
         self.statistics_text_rect = self.statistics_text.get_rect()
         self.statistics_text_rect.left = self._screen_width / 2 + 10
         self.statistics_text_rect.y = 620 - 200
@@ -56,7 +56,7 @@ class End:
         self.end_message_x = (
             self._screen_width - self.end_message.get_width()) // 2
 
-        self.end_message_y = 150
+        self.end_message_y = 50
 
     def handle_restart_click(self, mouse_pos):
         """Handles the clicking of the restart button
@@ -84,8 +84,6 @@ class End:
             return True
         return False
     
-    
-
     def save_score_to_database(self):
         """Saves score to database
         """

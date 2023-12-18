@@ -14,9 +14,9 @@ class Stats():
         """Initialize back button attributes"""
         self.font = pygame.font.Font('freesansbold.ttf', 25)
         self.back_text = self.font.render(
-            'BACK', True, (255, 255, 255), (240, 175, 53))
+            'BACK', True, (255, 255, 255), (255, 153, 51))
         self.back_text_rect = self.back_text.get_rect()
-        self.back_text_rect.center = (480 // 2, 600)
+        self.back_text_rect.center = (480 // 2, 550)
 
     def handle_back_click(self, mouse_pos):
         """Handles the clicking of the back button"""
@@ -35,7 +35,7 @@ class Stats():
         ax.plot(get_list_of_scores())
         ax.set_title("Development of scores")
         ax.set_xlabel('Session', fontsize=10)
-        ax.set_ylabel('Scores', fontsize=10)
+        ax.set_ylabel('Score', fontsize=10)
         ax.set_ylim(0, get_highest_score())
         ax.set_xlim(1, get_number_of_items())
         ax.xaxis.set_major_locator(pylab.MultipleLocator(1))
