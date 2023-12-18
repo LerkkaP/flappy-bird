@@ -25,4 +25,5 @@
 | 14.12 | 1    | Matplotlib perehtyminen
 | 15.12 | 2    | Stats sivun parantamista
 | 16.12 | 1    | Back painikkeen lisääminen
+| 18.12 | 1    | UI:n parantaminen
 | yht.  | 53   |

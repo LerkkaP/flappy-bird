@@ -53,6 +53,7 @@ class Stats():
         data = renderer.tostring_rgb()
         size = canvas.get_width_height()
         surf = pygame.image.fromstring(data, size, "RGB")
+        pylab.close(fig)
         return surf
 
     def draw_graph(self):
