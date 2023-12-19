@@ -63,11 +63,11 @@ poetry run invoke format
 
 Ohjelman viimeisimpään GitHub releaseen pääsee [täältä](https://github.com/LerkkaP/otharjoitustyo/releases/tag/viikko6)
 
-## Pelin grafiikat
+## Pelin grafiikat ja ääniefektit
 
-Kaikki pelin grafiikat ja äänet ovat peräisin [täältä](https://github.com/samuelcust/flappy-bird-assets)
+Pelin grafiikat - poislukien Pygamen omat tekstit - ja ääniefektit ovat peräisin [täältä](https://github.com/samuelcust/flappy-bird-assets)
 
-Pelin grafiikkojen ja äänien käyttöoikeus on myönnetty seuraavan MIT-lisenssin mukaisesti:
+Niiden käyttöoikeus on myönnetty seuraavan MIT-lisenssin mukaisesti:
 
 MIT License
 

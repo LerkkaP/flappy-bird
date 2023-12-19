@@ -2,8 +2,10 @@ import pygame
 from utils.asset_loader import AssetLoader
 from utils.score import Score
 from utils.phase_manager import PhaseManager
-from game_phases.end import get_highest_score, End
+from game_phases.end import End
+from db.database_actions import get_highest_score
 from game_phases.stats import Stats
+from utils.button import Button
 
 
 class Renderer:

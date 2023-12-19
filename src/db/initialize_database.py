@@ -6,9 +6,9 @@ db = TinyDB(os.path.join(dirname, "..", "data", "scores.json"))
 
 
 def get_database_connection():
-    """Returns database
+    """Retrieve the connection to the database
 
     Returns:
-        db: Returns database
+        Database object to be interacted with
     """
     return db

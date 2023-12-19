@@ -39,8 +39,6 @@ class Start:
     def _init_hover_attributes(self):
         """Initialize hover attributes for start message
         """
-        self.hover_speed = 0.25
-        self.hover_range = 5
         self.hover_direction = 1
         self.current_hover = 0
 
@@ -54,6 +52,6 @@ class Start:
         """Handles the text hovering
         """
 
-        self.current_hover += self.hover_speed * self.hover_direction
-        if abs(self.current_hover) >= self.hover_range:
+        self.current_hover += 0.25 * self.hover_direction
+        if abs(self.current_hover) >= 5:
             self.hover_direction *= -1

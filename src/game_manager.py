@@ -5,6 +5,7 @@ from game_phases.end import End
 from game_phases.stats import Stats
 from utils.phase_manager import PhaseManager
 from utils.score import Score
+import sys
 
 
 class GameManager():
@@ -19,8 +20,12 @@ class GameManager():
     def handle_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                pygame.quit()
+                self._handle_quit()
             self._handle_gameplay_events(event)
+
+    def _handle_quit(self):
+        pygame.quit()
+        sys.exit() # sys.exit() is for removing pygame error: display Surface quit
 
     def _handle_gameplay_events(self, event):
         if self.phase_manager.game_in_start():

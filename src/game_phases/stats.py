@@ -32,12 +32,14 @@ class Stats():
         return fig, ax
     
     def _set_graph_properties(self, ax):
+        scores = get_list_of_scores()
         ax.plot(get_list_of_scores())
         ax.set_title("Development of scores")
         ax.set_xlabel('Session', fontsize=10)
         ax.set_ylabel('Score', fontsize=10)
-        ax.set_ylim(0, get_highest_score())
-        ax.set_xlim(1, get_number_of_items())
+        
+        ax.set_ylim(0, get_highest_score() + 1)
+        ax.set_xlim(0, get_number_of_items())
         ax.xaxis.set_major_locator(pylab.MultipleLocator(1))
         ax.yaxis.set_major_locator(pylab.MultipleLocator(1))
 

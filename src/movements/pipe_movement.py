@@ -33,7 +33,6 @@ class PipeMovement:
         self._pipe_initial_x = self._screen_width + 200
         self._speed = 2.5
         self._pipe_difference = 88
-        self._sound_manager = SoundManager()
         self.score = Score()
 
         self._top_pipe_y = random.randint(-172, 0)
@@ -75,7 +74,7 @@ class PipeMovement:
             self._add_pipe(self._screen_width, self._bottom_pipe_y, False)
             self._add_pipe(self._screen_width, self._top_pipe_y, True)
 
-    def update_score(self):
+    def update_score(self, sound_manager):
         """Updates the game score based on the position of the pipes
 
         The method checks the position of each pipe, and if a pipe reaches a certain 
@@ -85,7 +84,7 @@ class PipeMovement:
         for single_pipe in self.pipe.sprites():
             if single_pipe.rect.left == self._screen_width / 3 + 20:
                 self.score.increment_score()
-                self._sound_manager.play_sound("point")
+                sound_manager.play_sound("point")
 
     def check_collision(self, bird_group):
         """Checks for collisions between pipes and bird

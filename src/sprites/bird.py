@@ -72,8 +72,9 @@ class Bird(pygame.sprite.Sprite):
 
     def fly(self, dx, dy):
         """Handles the bird's upward movement"""
-        self.rect.move_ip(dx, dy)
-        self._velocity = -7
+        if self.rect.y >= 0:
+            self.rect.move_ip(dx, dy)
+            self._velocity = -7
 
     def fall(self):
         """Simulates the bird's falling
