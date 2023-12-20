@@ -1,7 +1,6 @@
-import pygame
 from utils.asset_loader import AssetLoader
 from utils.score import Score
-from db.database_actions import save_score, get_highest_score
+from db.database_actions import save_score
 from utils.button import Button
 
 

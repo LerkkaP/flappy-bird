@@ -2,7 +2,6 @@ import random
 import pygame
 from sprites.pipe import Pipe
 from utils.score import Score
-from utils.sound_manager import SoundManager
 
 
 class PipeMovement:
@@ -14,7 +13,6 @@ class PipeMovement:
         _speed: Speed in which the pipe object is moving --> controls the x-coordinate
         _pipe_difference: The difference between top and bottom pipes
         --> the whole between the pipes
-        _sound_manager: Instance of the SoundManager class
         score : Instance of the Score class
         _top_pipe_y: Y-coordinate for the top pipe --> 
         random number between -172 and 0 for the starting position
