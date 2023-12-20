@@ -3,19 +3,16 @@ import matplotlib.backends.backend_agg as agg
 import pylab
 import pygame
 from db.database_actions import get_highest_score, get_number_of_items, get_list_of_scores
-from utils.button import Button
+from utils.text import Text
 
 class Stats():
     def __init__(self):
-        self._init_back_button()
-
-    def _init_back_button(self):
-        """Initialize back button attributes"""
-        self.back_button = Button('BACK', 'center', 480)
-
+        self.text = Text(480)
+        
     def handle_back_click(self, mouse_pos):
         """Handles the clicking of the back button"""
-        return self.back_button.check_collision(mouse_pos)
+        back_text_render, back_text_rect = self.text.back_button()
+        return self.text.check_collision(back_text_rect, mouse_pos)
 
     def _initialize_graph(self):
         '''Initialize graph'''

@@ -1,7 +1,7 @@
 from utils.asset_loader import AssetLoader
 from utils.score import Score
 from db.database_actions import save_score
-from utils.button import Button
+from utils.text import Text
 
 
 class End:
@@ -11,9 +11,6 @@ class End:
         _screen_width: Width of the sceen
         score: Instance of score class
         _init_end_message: Initialization of game over message attributes
-        _init_restart_button: Initialization of restart button attributes
-        _init_statistics_button: Initialization of statistics button attributes
-
     """
 
     def __init__(self, screen_width):
@@ -24,9 +21,9 @@ class End:
         """
         self._screen_width = screen_width
         self.score = Score()
-
-        self.restart_button = Button('RESTART', 'right', self._screen_width)
-        self.statistics_button = Button('STATS', 'left', self._screen_width)
+        self.text = Text(screen_width)
+        self.restart_text = self.text.end_buttons('RESTART')
+        self.stats_text = self.text.end_buttons('STATS')
         
         self._init_end_message()
 
@@ -41,11 +38,13 @@ class End:
     
     def handle_restart_click(self, mouse_pos):
         """Handles the clicking of the restart button"""
-        return self.restart_button.check_collision(mouse_pos)
+        restart_text_render, restart_text_rect = self.text.end_buttons('RESTART')
+        return self.text.check_collision(restart_text_rect, mouse_pos)
 
     def handle_statistics_click(self, mouse_pos):
         """Handles the clicking of the stats button"""
-        return self.statistics_button.check_collision(mouse_pos)
+        stats_text_render, stats_text_rect = self.text.end_buttons('STATS')
+        return self.text.check_collision(stats_text_rect, mouse_pos)
     
     def save_score_to_database(self):
         """Saves score to database

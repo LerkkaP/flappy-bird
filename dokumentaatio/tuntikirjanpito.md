@@ -26,4 +26,5 @@
 | 15.12 | 2    | Stats sivun parantamista
 | 16.12 | 1    | Back painikkeen lisääminen
 | 18.12 | 1    | UI:n parantaminen
+| 20.12 | 4    | Renderöinnin refaktorointi, tekstien refaktoirintia
 | yht.  | 53   |
