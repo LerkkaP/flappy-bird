@@ -15,8 +15,7 @@ class Text:
 
     def _init_colors(self):
         """Initialize colors"""
-        self.text_color = (255, 139, 0)
-        self.button_text_color = (255, 255, 255)
+        self.text_color = (255, 255, 255)
         self.button_background_color = (255, 153, 51)
 
     def end_score(self, text):
@@ -31,7 +30,7 @@ class Text:
     
     def end_buttons(self, text):
         """Handles button text and rect"""
-        text_render = self.font.render(text, True, self.button_text_color, self.button_background_color)
+        text_render = self.font.render(text, True, self.text_color, self.button_background_color)
         text_rect = text_render.get_rect()
         text_rect.y = 420
 
@@ -43,7 +42,7 @@ class Text:
     
     def back_button(self):
         """Handles back button text and rect"""
-        text_render = self.font.render('BACK', True, self.button_text_color, self.button_background_color)
+        text_render = self.font.render('BACK', True, self.text_color, self.button_background_color)
         text_rect = text_render.get_rect()
         text_rect.center = (self._screen_width / 2, 550)
         return text_render, text_rect        

@@ -29,8 +29,9 @@ class GameplayRenderer():
     def _render_score(self, y):
         score = self.score.get_score()
         score_digits = list(str(score))
+        width = len(score_digits) * 21
         for i, digit in enumerate(score_digits):
             image = AssetLoader.load_image("score", f"{digit}.png")
             self._display.blit(
                 image,
-                ((self._screen_width - image.get_width()) // 2 + i * 21, y))
+                ((self._screen_width - width) // 2 + i * 21, y))
