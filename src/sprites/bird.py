@@ -18,7 +18,7 @@ class Bird(pygame.sprite.Sprite):
     """
 
     def __init__(self, x, y):
-        """Initialize bird object
+        """Initializes bird object
 
         Args:
             x: X-coordinate of the bird's starting position

@@ -1,5 +1,5 @@
 class PhaseManager():
-    """Class for managin the game phases
+    """Class for managing the game phases
 
     Attributes:
         _phase = current phase of the gameplay -> initially start
@@ -20,7 +20,7 @@ class PhaseManager():
         self._phase = phase
 
     def game_in_start(self):
-        """Check if the game is currently in the start phase
+        """Checks if the game is currently in the start phase
 
         Returns:
             bool: True if the game is in the start phase, else False
@@ -28,7 +28,7 @@ class PhaseManager():
         return self._phase == "start"
 
     def game_in_gameplay(self):
-        """Check if the game is currently in the gameplay phase
+        """Checks if the game is currently in the gameplay phase
 
         Returns:
             bool: True if the game is in the gameplay phase, else False
@@ -44,4 +44,9 @@ class PhaseManager():
         return self._phase == "end"
 
     def game_in_stats(self):
+        """Checks if the game is currently in the stats phase
+
+        Returns:
+            bool: True if the game is in the stats phase, else False
+        """
         return self._phase == "stats"

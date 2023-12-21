@@ -14,7 +14,7 @@ class GroundMovement:
     """
 
     def __init__(self, screen_width):
-        """Initialize ground movement
+        """Initializes GroundMovement class
 
         Args:
             screen_width: Width of the screen
@@ -31,7 +31,7 @@ class GroundMovement:
                         self._ground_initial_x, self._ground_initial_y))
 
     def update_ground(self):
-        """Update the ground movement by adding new ground objects when needed"""
+        """Updates the ground movement by adding new ground objects when needed"""
         last_ground = self.ground.sprites()[-1]
         if last_ground.rect.right < self._screen_width:
             new_ground_x = last_ground.rect.right
@@ -39,7 +39,7 @@ class GroundMovement:
                             new_ground_x, self._ground_initial_y))
 
     def check_collision(self, bird_group):
-        """Check for collision between bird and ground
+        """Checks for collision between bird and ground
 
         Args:
             bird_group: Pygame sprite group containing bird objects

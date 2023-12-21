@@ -12,13 +12,13 @@ class Score():
         return cls.instance
 
     def increment_score(self):
-        """Increment score by one
+        """Increments score by one
         """
 
         self.score += 1
 
     def get_score(self):
-        """Return score
+        """Returns score
 
         Returns:
             Returns score in correct format

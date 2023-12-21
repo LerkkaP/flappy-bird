@@ -23,7 +23,7 @@ class Gameplay:
     """
 
     def __init__(self, screen_width, screen_height):
-        """Initialize gameplay phase
+        """Initializes Gameplay class
 
         Args:
             screen_width: Width of the screen
@@ -36,13 +36,13 @@ class Gameplay:
         self._init_game_elements()
 
     def _init_bird(self):
-        """Initialize bird sprites
+        """Initializes bird sprites
         """
         self.bird = pygame.sprite.Group()
         self.bird.add(Bird(160, self._screen_height / 2))
 
     def _init_game_elements(self):
-        """Initialize game elements"""
+        """Initializes game elements"""
         self._sound_manager = SoundManager()
         self.score = Score()
         self.ground_movement = GroundMovement(self._screen_width)
@@ -50,23 +50,23 @@ class Gameplay:
         self.phase_manager = PhaseManager()
 
     def update(self):
-        """Update elements related to gameplay phase"""
+        """Updates elements related to gameplay phase"""
         self._update_ground()
         self._update_pipes()
 
     def _update_ground(self):
-        """Update ground"""
+        """Updates ground"""
         self.ground_movement.ground.update()
         self.ground_movement.update_ground()
 
     def _update_pipes(self):
-        """Update pipes and score that is related to pipe"""
+        """Updates pipes and score that is related to pipe"""
         self.pipe_movement.pipe.update()
         self.pipe_movement.update_pipe()
         self.pipe_movement.update_score(self._sound_manager)
 
     def handle_bird_fly(self, dx, dy):
-        """Handle bird's flying movement
+        """Handles bird's flying movement
 
         Args:
             dx: Horizontal movement --> This stays constant
@@ -78,14 +78,14 @@ class Gameplay:
         self._sound_manager.play_sound("wing")
 
     def handle_bird_fall(self):
-        """Handle bird's falling movement
+        """Handles bird's falling movement
         """
         if not self.ground_movement.check_collision(self.bird):
             for bird in self.bird.sprites():
                 bird.fall()
 
     def handle_collision(self):
-        """Handle collision related logic"""
+        """Handles collision related logic"""
         ground_collision = self.ground_movement.check_collision(self.bird)
         pipe_collision = self.pipe_movement.check_collision(self.bird)
 
@@ -93,7 +93,7 @@ class Gameplay:
             self._handle_collision_environment()
 
     def _handle_collision_environment(self):
-        """Handle collision environment
+        """Handles collision environment
         """
         self._sound_manager.play_sound("die")
         self.ground_movement.move = False
@@ -102,7 +102,7 @@ class Gameplay:
         save_score(self.score.get_score())
 
     def reset_bird(self):
-        """Reset the bird's position
+        """Resets the bird's position
         """
         for bird in self.bird:
             bird.reset_position(160, self._screen_height / 2)

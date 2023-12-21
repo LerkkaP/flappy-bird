@@ -2,25 +2,45 @@ import pygame
 
 
 class Text:
-    """Class to handle text attributes and collisions"""
+    """Class to handle text attributes and collisions
+
+    Attributes:
+        _screen_width: Width of the screen
+        font: Pygame font
+        text_color: Text color
+        button_background_color: Text background color
+    """
 
     def __init__(self, screen_width):
-        """Initialize button attributes"""
+        """Initialize Text class
+
+        Args:
+            screen_width: Width of the screen
+        """
         self._screen_width = screen_width
         self._init_font()
         self._init_colors()
 
     def _init_font(self):
-        """Set a new font"""
+        """Initializes text font to be used
+        """
         self.font = pygame.font.Font('freesansbold.ttf', 25)
 
     def _init_colors(self):
-        """Initialize colors"""
+        """Initializes text color and background color
+        """
         self.text_color = (255, 255, 255)
         self.button_background_color = (255, 153, 51)
 
     def end_score(self, text):
-        """Renders end screen scores"""
+        """Renders end screen score texts --> SCORE and BEST
+
+        Args:
+            text: text to be renderer, either SCORE or BEST
+
+        Returns:
+            A tuple containing the rendered text and its rectangle representation
+        """
         text_render = self.font.render(text, True, self.text_color)
         text_rect = text_render.get_rect()
         if text == "SCORE":
@@ -30,7 +50,14 @@ class Text:
         return text_render, text_rect
 
     def end_buttons(self, text):
-        """Handles button text and rect"""
+        """Renders end buttons STATS and RESTART
+
+        Args:
+            text: text to be renderer, either STATS or RESTART
+
+        Returns:
+            A tuple containing the rendered text and its rectangle representation
+        """
         text_render = self.font.render(
             text, True, self.text_color, self.button_background_color)
         text_rect = text_render.get_rect()
@@ -43,7 +70,11 @@ class Text:
         return text_render, text_rect
 
     def back_button(self):
-        """Handles back button text and rect"""
+        """Renders BACK button
+
+        Returns:
+            A tuple containing the rendered 'BACK' text and its rectangle representation.
+        """
         text_render = self.font.render(
             'BACK', True, self.text_color, self.button_background_color)
         text_rect = text_render.get_rect()
@@ -51,5 +82,5 @@ class Text:
         return text_render, text_rect
 
     def check_collision(self, text_rect, mouse_pos):
-        """Check if button is clicked"""
+        """Checks if button is clicked"""
         return text_rect.collidepoint(mouse_pos)

@@ -19,7 +19,7 @@ class End:
     """
 
     def __init__(self, screen_width):
-        """Initialize end phase
+        """Initializes End class
 
         Args:
             screen_width (_type_): _description_

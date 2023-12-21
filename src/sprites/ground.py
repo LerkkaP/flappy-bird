@@ -16,7 +16,7 @@ class Ground(pygame.sprite.Sprite):
     """
 
     def __init__(self, speed, x, y):
-        """Initialize ground object
+        """Initializes Ground class
 
         Args:
             speed: Speed at which the ground moves horizontally
@@ -33,7 +33,7 @@ class Ground(pygame.sprite.Sprite):
         self.rect.y = y
 
     def update(self):
-        """Updates groun position and destroys it if fully passes screen
+        """Updates ground position and destroys it if fully passes screen
         """
         self.rect.x -= self._speed
         if self.rect.right < 0:

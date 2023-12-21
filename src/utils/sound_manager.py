@@ -11,7 +11,7 @@ class SoundManager:
     """
 
     def __init__(self):
-        """Constructor that initializes the sound manager
+        """Initializes SoundManager class
         """
         self._mixer = pygame.mixer
         self._mixer.init()
@@ -35,6 +35,6 @@ class SoundManager:
         self._stop_sound()
 
     def _stop_sound(self):
-        """Stops the sound
+        """Stops the playing sound
         """
         self._mixer.music.stop()

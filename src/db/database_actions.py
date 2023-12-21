@@ -13,7 +13,7 @@ def save_score(score):
 
 
 def get_highest_score():
-    """Retrieve the highest score saved in the database
+    """Retrieves the highest score saved in the database
 
     Returns:
         The highest score found in the database
@@ -24,7 +24,7 @@ def get_highest_score():
 
 
 def get_all_scores():
-    """Retrieve all scores stored in the database
+    """Retrieves all scores stored in the database
 
     Returns:
         A list containing all scores stored in the database
@@ -34,7 +34,7 @@ def get_all_scores():
 
 
 def get_number_of_items():
-    """Retrieve the total number of scores saved in the database
+    """Retrieves the total number of scores saved in the database
 
     Returns:
         The number of scores stored in the database
@@ -44,7 +44,7 @@ def get_number_of_items():
 
 
 def get_list_of_scores():
-    """Retrieve a list of all scores stored in the database
+    """Retrieves a list of all scores stored in the database
 
     Returns:
         A List of scores stored in the database

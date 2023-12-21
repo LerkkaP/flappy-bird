@@ -28,13 +28,14 @@ class BaseRenderer:
             display: Pygame display surface
             screen_width: Width of the screen
             screen_height: Height of the screen
-            game_manager: Instance of the class GameManager
+            game_manager: GameManager class
         """
         self._display = display
         self._screen_width = screen_width
         self._screen_height = screen_height
         self.start_renderer = StartRenderer(display, game_manager)
-        self.gameplay_renderer = GameplayRenderer(display, screen_width, game_manager)
+        self.gameplay_renderer = GameplayRenderer(
+            display, screen_width, game_manager)
         self.end_renderer = EndRenderer(display, screen_width, game_manager)
         self.stats_renderer = StatsRenderer(display, screen_width)
         self.phase_manager = PhaseManager()
@@ -46,7 +47,7 @@ class BaseRenderer:
         self._render_phase()
 
     def _render_phase(self):
-        """Render the current phase based on PhaseManager"""
+        """Renders the current phase based on PhaseManager"""
         if self.phase_manager.game_in_start():
             self.start_renderer.render_start()
         elif self.phase_manager.game_in_gameplay():
@@ -57,13 +58,13 @@ class BaseRenderer:
             self.stats_renderer.render_stats()
 
     def _render_background(self):
-        """Render the background image
+        """Renders the background image
         """
         background_image = self._init_background_image()
         self._display.blit(background_image, (0, 0))
 
     def _init_background_image(self):
-        """Initialize the background image for the game
+        """Initializes the background image for the game
 
         Returns:
             background image to be rendered

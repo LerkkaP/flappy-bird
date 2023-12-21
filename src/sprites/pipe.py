@@ -9,13 +9,13 @@ class Pipe(pygame.sprite.Sprite):
         image: Pipe image
         rect: Rect object of the pipe image
         speed: Speed at which the pipe moves horizontally
-        x: X-coordinate of the pipe's starting position
-        y: Y-coordinate of the pipe's starting position
+        rect.x: X-coordinate of the pipe's starting position
+        rect.y: Y-coordinate of the pipe's starting position
         flip: Boolean value indicating whether the pipe needs to be flipped
     """
 
     def __init__(self, speed, x, y, flip):
-        """Initialize pipe object
+        """Initializes Pipe class
 
         Args:
             speed: Speed at which the pipe moves horizontally

@@ -14,6 +14,8 @@ class Stats():
     """
 
     def __init__(self):
+        """Initializes the Stats class
+        """
         self.text = Text(480)
 
     def handle_back_click(self, mouse_pos):
@@ -29,7 +31,7 @@ class Stats():
         return self.text.check_collision(back_text_rect, mouse_pos)
 
     def _initialize_graph(self):
-        """Initialize graph with Matplotlib
+        """Initializes the graph with Matplotlib
 
         Returns:
             A tuple containing the Matplotlib figure and axes objects for the graph.
@@ -40,7 +42,7 @@ class Stats():
         return fig, ax
 
     def _set_graph_properties(self, ax):
-        """Set graph properties
+        """Sets graph properties
 
         Args:
             ax: Matplotlib axes object"""
@@ -55,7 +57,7 @@ class Stats():
         ax.yaxis.set_major_locator(pylab.MultipleLocator(1))
 
     def _set_ticks(self, ax, ticks=8):
-        """Set ticks on the graph
+        """Sets ticks on the graph
 
         Args:
             ax: Matplotlib axes object
@@ -66,7 +68,7 @@ class Stats():
         ax.set_xticks(x_values)
 
     def _render_graph(self, fig):
-        """Render graph
+        """Renders the graph
 
         Args:
             fig: Matplotlib figure object representing the graph
@@ -84,7 +86,7 @@ class Stats():
         return surf
 
     def draw_graph(self):
-        """Draw the graph
+        """Draws the graph
 
         Returns:
             A surface of the rendered graph ready for display in the pygame window

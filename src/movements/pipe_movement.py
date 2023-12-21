@@ -21,7 +21,7 @@ class PipeMovement:
     """
 
     def __init__(self, screen_width):
-        """Initialize pipe movement
+        """Initializes PipeMovement class
 
         Args:
             screen_width: Width of the screen
@@ -39,7 +39,7 @@ class PipeMovement:
         self._initialize_pipes()
 
     def _initialize_pipes(self):
-        """Initialize the pipes
+        """Initializes pipes
         """
         self.pipe.add(Pipe(self._speed,
                       self._pipe_initial_x, self._bottom_pipe_y, False))
