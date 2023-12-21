@@ -7,14 +7,16 @@ from utils.phase_manager import PhaseManager
 from utils.score import Score
 from db.database_actions import save_score
 
+
 class Gameplay:
     """Class for managing the gameplay phase of the game
 
     Attributes:
+        _screen_width: Width of the screen
         _screen_height: Height of the screen
         _bird: Pygame sprite group for bird objects
         _sound_manager: Instance of SoundManager class
-        _end_phase: Instance of End class
+        score: Instance of score class
         ground_movement: Instance of GroundMovement class
         pipe_movement: Instance of PipeMovement class
         phase_manager: Instance of Phase_manager class
@@ -34,6 +36,8 @@ class Gameplay:
         self._init_game_elements()
 
     def _init_bird(self):
+        """Initialize bird sprites
+        """
         self.bird = pygame.sprite.Group()
         self.bird.add(Bird(160, self._screen_height / 2))
 

@@ -6,12 +6,13 @@ class Start:
     """Class for managing the start phase of the game
 
      Attributes:
-            _screen_width: Width of the screen
-            _screen_height: Height of the screen
-            ground_movement: Instance of GroundMovement class
-            _init_start_message: Initializes the attributes related to start message
-            _init_hover_attributes: Initializes the attributes related to start message hovering
-    """
+        _screen_width: Width of the screen
+        _screen_height: Height of the screen
+        ground_movement: Instance of GroundMovement class
+        start_message_x: X-coordinate of the start message on the screen
+        start_message_y: Y-coordinate of the start message on the screen
+        hover_direction: Direction of text hovering
+        current_hover: Current position offset for text hovering    """
 
     def __init__(self, screen_width, screen_height):
         """Initialize start phase

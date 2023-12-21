@@ -1,5 +1,6 @@
 import pygame
 
+
 class Text:
     """Class to handle text attributes and collisions"""
 
@@ -27,10 +28,11 @@ class Text:
         else:
             text_rect.center = (self._screen_width / 2, 250)
         return text_render, text_rect
-    
+
     def end_buttons(self, text):
         """Handles button text and rect"""
-        text_render = self.font.render(text, True, self.text_color, self.button_background_color)
+        text_render = self.font.render(
+            text, True, self.text_color, self.button_background_color)
         text_rect = text_render.get_rect()
         text_rect.y = 420
 
@@ -39,13 +41,14 @@ class Text:
         else:
             text_rect.right = self._screen_width / 2 - 10
         return text_render, text_rect
-    
+
     def back_button(self):
         """Handles back button text and rect"""
-        text_render = self.font.render('BACK', True, self.text_color, self.button_background_color)
+        text_render = self.font.render(
+            'BACK', True, self.text_color, self.button_background_color)
         text_rect = text_render.get_rect()
         text_rect.center = (self._screen_width / 2, 550)
-        return text_render, text_rect        
+        return text_render, text_rect
 
     def check_collision(self, text_rect, mouse_pos):
         """Check if button is clicked"""

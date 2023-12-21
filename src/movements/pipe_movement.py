@@ -76,8 +76,10 @@ class PipeMovement:
         """Updates the game score based on the position of the pipes
 
         The method checks the position of each pipe, and if a pipe reaches a certain 
-        position, it increments the game score by one
-        and plays a sound effect using the SoundManager instance
+        position, it increments the game score by one and plays a sound effect
+
+        Args:
+            sound_manager: SoundManager class to play sounds
         """
         for single_pipe in self.pipe.sprites():
             if single_pipe.rect.left == self._screen_width / 3 + 20:

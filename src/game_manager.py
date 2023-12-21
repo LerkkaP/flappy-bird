@@ -1,3 +1,4 @@
+import sys
 import pygame
 from game_phases.start import Start
 from game_phases.gameplay import Gameplay
@@ -5,7 +6,6 @@ from game_phases.end import End
 from game_phases.stats import Stats
 from utils.phase_manager import PhaseManager
 from utils.score import Score
-import sys
 
 
 class GameManager():
@@ -25,7 +25,7 @@ class GameManager():
 
     def _handle_quit(self):
         pygame.quit()
-        sys.exit() # sys.exit() is for removing pygame error: display Surface quit
+        sys.exit()  # sys.exit() is for removing pygame error: display Surface quit
 
     def _handle_gameplay_events(self, event):
         if self.phase_manager.game_in_start():
@@ -60,7 +60,6 @@ class GameManager():
                 elif self.stats_phase.handle_back_click(mouse_pos):
                     self.phase_manager.set_phase("end")
 
-
     def _restart_game(self):
         self.phase_manager.set_phase("start")
         self.gameplay_phase.reset_bird()
@@ -69,7 +68,7 @@ class GameManager():
 
     def _handle_stats(self):
         self.phase_manager.set_phase("stats")
-        
+
     def handle_game_state(self):
         if self.phase_manager.game_in_start():
             self.start_phase.update()
@@ -86,3 +85,28 @@ class GameManager():
             self.gameplay_phase.handle_collision()
 
         self.gameplay_phase.handle_bird_fall()
+
+    def get_pipes(self):
+        return self.gameplay_phase.pipe_movement.pipe
+
+    def get_ground(self):
+        if self.phase_manager.game_in_start():
+            return self.start_phase.ground_movement.ground
+        elif self.phase_manager.game_in_gameplay() or self.phase_manager.game_in_end():
+            return self.gameplay_phase.ground_movement.ground
+        
+    def get_bird(self):
+        return self.gameplay_phase.bird
+    
+    def get_end_message(self):
+        return (
+            self.end_phase.end_message,
+            (self.end_phase.end_message_x, self.end_phase.end_message_y)
+        )
+
+    def get_start_message(self):
+        return (
+            self.start_phase.start_message,
+            (self.start_phase.start_message_x, self.start_phase.start_message_y)
+        )
+

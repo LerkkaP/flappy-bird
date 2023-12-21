@@ -1,21 +1,19 @@
+from .mixin_renderer import RendererMixin
 
-class StartRenderer():
+
+class StartRenderer(RendererMixin):
     def __init__(self, display, game_manager):
         self._display = display
         self._game_manager = game_manager
 
     def render_start(self):
         self._render_start_message()
-        self._render_ground()
-        
+        self.render_ground(self._game_manager.get_ground(), self._display)
+
     def _render_start_message(self):
-        hover_offset_y = self._game_manager.start_phase.start_message_y + \
-            self._game_manager.start_phase.current_hover
-        self._display.blit(self._game_manager.start_phase.start_message,
-                           (self._game_manager.start_phase.start_message_x, hover_offset_y))
+        start_message, start_message_coordinates = self._game_manager.get_start_message()
+        start_message_x = start_message_coordinates[0]
+        start_message_y = start_message_coordinates[1]
 
-    def _render_ground(self):
-        self._game_manager.start_phase.ground_movement.ground.draw(
-                self._display)
-
-
+        hover_offset_y = start_message_y + self._game_manager.start_phase.current_hover
+        self._display.blit(start_message, (start_message_x, hover_offset_y))

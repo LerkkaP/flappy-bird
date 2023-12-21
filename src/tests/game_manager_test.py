@@ -18,20 +18,24 @@ class TestGameManager(unittest.TestCase):
 
         self.game_manager.handle_events()
 
-        self.assertEqual(self.game_manager.phase_manager.game_in_gameplay(), True)
+        self.assertEqual(
+            self.game_manager.phase_manager.game_in_gameplay(), True)
 
     def test_start_events(self):
         click_mouse = pygame.event.Event(pygame.MOUSEBUTTONDOWN, {'button': 1})
         pygame.event.post(click_mouse)
 
         self.game_manager._handle_start_events(click_mouse)
-        self.assertEqual(self.game_manager.phase_manager.game_in_gameplay(), True)
+        self.assertEqual(
+            self.game_manager.phase_manager.game_in_gameplay(), True)
 
-        click_space = pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_SPACE})
+        click_space = pygame.event.Event(
+            pygame.KEYDOWN, {'key': pygame.K_SPACE})
         pygame.event.post(click_space)
 
         self.game_manager._handle_start_events(click_space)
-        self.assertEqual(self.game_manager.phase_manager.game_in_gameplay(), True)
+        self.assertEqual(
+            self.game_manager.phase_manager.game_in_gameplay(), True)
 
     def test_that_game_is_restarted(self):
         self.game_manager._restart_game()

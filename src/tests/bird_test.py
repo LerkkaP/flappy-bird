@@ -30,7 +30,7 @@ class TestBird(unittest.TestCase):
         initial_sprite = self.bird.current_sprite
         self.bird.update()
         updated_sprite = self.bird.current_sprite
-        self.assertNotEqual(initial_sprite, updated_sprite  )
+        self.assertNotEqual(initial_sprite, updated_sprite)
 
     def test_bird_reset(self):
         self.bird.reset_position(200, 300)

@@ -1,11 +1,11 @@
 import unittest
 from db.database_actions import save_score, get_highest_score, get_all_scores, db
 
+
 class TestDatabaseActions(unittest.TestCase):
 
     def setUp(self):
         db.truncate()
-
 
     def test_get_highest_score(self):
         save_score(5)

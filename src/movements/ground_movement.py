@@ -10,7 +10,7 @@ class GroundMovement:
         _ground_initial_x: Initial x-coordinate of the ground object
         _ground_initial_y: Initial y-coordinate of the ground object
         _speed: Speed in which the ground object moves --> controls the x-coordinate
-        _ground: Pygame sprite group 
+        ground: Pygame sprite group for ground objects
     """
 
     def __init__(self, screen_width):
