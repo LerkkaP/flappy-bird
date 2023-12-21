@@ -1,7 +1,7 @@
 from utils.asset_loader import AssetLoader
 from utils.score import Score
-from db.database_actions import save_score
 from utils.text import Text
+from db.database_actions import save_score
 
 
 class End:
@@ -50,7 +50,7 @@ class End:
         Returns:
             True if the mouse click was on the restart button, False otherwise
         """
-        restart_text_render, restart_text_rect = self.text.end_buttons(
+        _, restart_text_rect = self.text.end_buttons(
             'RESTART')
         return self.text.check_collision(restart_text_rect, mouse_pos)
 
@@ -63,7 +63,7 @@ class End:
         Returns:
             True if the mouse click was on the stats button, False otherwise
         """
-        stats_text_render, stats_text_rect = self.text.end_buttons('STATS')
+        _, stats_text_rect = self.text.end_buttons('STATS')
         return self.text.check_collision(stats_text_rect, mouse_pos)
 
     def save_score_to_database(self):

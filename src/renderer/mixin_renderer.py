@@ -1,6 +1,7 @@
 from utils.asset_loader import AssetLoader
 from utils.score import Score
 
+
 class RendererMixin:
     def __init__(self):
         self.score = Score()

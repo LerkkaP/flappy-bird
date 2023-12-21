@@ -5,6 +5,11 @@ from renderer.base_renderer import BaseRenderer
 
 
 def initialize_game():
+    """Initialize game components
+
+    Returns:
+        Clock, game_manager and renderer to be used in the main loop
+    """
 
     pygame.init()
     screen_width, screen_height = 480, 620
@@ -22,6 +27,8 @@ def initialize_game():
 
 
 def run_game():
+    """Main loop responsible for running the game
+    """
     clock, game_manager, renderer = initialize_game()
 
     while True:
@@ -30,7 +37,6 @@ def run_game():
         renderer.render_game()
         pygame.display.update()
         clock.tick(60)
-
 
 if __name__ == "__main__":
     run_game()

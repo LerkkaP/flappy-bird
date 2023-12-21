@@ -3,6 +3,7 @@ from .mixin_renderer import RendererMixin
 
 class StartRenderer(RendererMixin):
     def __init__(self, display, game_manager):
+        super().__init__()
         self._display = display
         self._game_manager = game_manager
 

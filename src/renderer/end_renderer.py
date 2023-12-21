@@ -36,7 +36,7 @@ class EndRenderer(RendererMixin):
     def _render_end_scores(self):
         self._render_end_score("SCORE", y=170)
         self._render_end_score("BEST", y=270)
-        
+
     def _render_end_score(self, score_type, y):
         score_text_render, score_text_rect = self.text.end_score(score_type)
         self._display.blit(score_text_render, score_text_rect)
@@ -50,4 +50,3 @@ class EndRenderer(RendererMixin):
 
         self._display.blit(restart_text_render, restart_text_rect)
         self._display.blit(stats_text_render, stats_text_rect)
-

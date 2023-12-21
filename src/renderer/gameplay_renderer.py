@@ -14,6 +14,5 @@ class GameplayRenderer(RendererMixin):
         self.render_pipes(self._game_manager.get_pipes(), self._display)
         self.render_ground(self._game_manager.get_ground(), self._display)
         self.render_bird(self._game_manager.get_bird(), self._display)
-        self.render_score(self.score.get_score(), self._display, self._screen_width, 50)
-
-
+        self.render_score(self.score.get_score(),
+                          self._display, self._screen_width, 50)

@@ -34,9 +34,7 @@ class BaseRenderer:
         self._screen_width = screen_width
         self._screen_height = screen_height
         self.start_renderer = StartRenderer(display, game_manager)
-        self.gameplay_renderer = GameplayRenderer(
-            display, screen_width, game_manager)
-        self.pipes = game_manager.get_pipes()
+        self.gameplay_renderer = GameplayRenderer(display, screen_width, game_manager)
         self.end_renderer = EndRenderer(display, screen_width, game_manager)
         self.stats_renderer = StatsRenderer(display, screen_width)
         self.phase_manager = PhaseManager()

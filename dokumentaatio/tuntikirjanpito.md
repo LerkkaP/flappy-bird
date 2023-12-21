@@ -27,4 +27,5 @@
 | 16.12 | 1    | Back painikkeen lisääminen
 | 18.12 | 1    | UI:n parantaminen
 | 20.12 | 4    | Renderöinnin refaktorointi, tekstien refaktoirintia
+| 21.12 | 5    | Renderöinnin refaktorointia, GameManagerin refaktorointi
 | yht.  | 53   |

@@ -25,7 +25,7 @@ class Stats():
         Returns:
             True if the mouse click was on the back button, False otherwise
         """
-        back_text_render, back_text_rect = self.text.back_button()
+        _, back_text_rect = self.text.back_button()
         return self.text.check_collision(back_text_rect, mouse_pos)
 
     def _initialize_graph(self):
