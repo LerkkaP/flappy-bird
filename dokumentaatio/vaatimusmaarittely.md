@@ -2,7 +2,7 @@
 
 ## Sovelluksen tarkoitus
 
-Sovellus on pygame -kirjastolla toteutettu **Flappy Bird** -tyylinen _peli_. Pelissä lennetään linnulla putkien välistä ja tarkoituksena on saada mahdollisimman suuri pistetulos eli lentää mahdollisimman pitkälle. Jos lintu putoaa maahan tai osuu putkiin, peli loppuu ja sen voi aloittaa alusta.
+Sovellus on pygame -kirjastolla toteutettu **Flappy Bird** -tyylinen _peli_. Pelissä lennetään linnulla putkien välistä ja tarkoituksena on saada mahdollisimman suuri pistetulos eli lentää mahdollisimman pitkälle. Jos lintu putoaa maahan tai osuu putkiin, peli loppuu ja sen voi aloittaa alusta. Pelin päätyttyä on mahdollisuus tarkastella kuvaajaa pisteiden evoluutiosta.
 
 ## Perusversion toiminnallisuus
 
@@ -22,10 +22,10 @@ Sovellus on pygame -kirjastolla toteutettu **Flappy Bird** -tyylinen _peli_. Pel
 
 ### Lopputilanne
 
-- Pisteet tallennetaan tietokantaan &#9745;
+- Pisteet tallennetaan TinyDB tietokantaan &#9745;
 - Näytetään saatu tulos ja kaikkien aikojen paras tulos &#9745;
 - Pelin voi aloittaa uudestaan painamalla **restart** painiketta &#9745;
-- **figure** painikkeesta voi nähdä tilastoja
+- **stats** painikkeesta voi nähdä tilaston pisteiden kehittymisestä &#9745;
 
 ## Jatkokehitysideoita
 

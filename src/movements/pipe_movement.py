@@ -17,7 +17,7 @@ class PipeMovement:
         _top_pipe_y: Y-coordinate for the top pipe --> 
         random number between -172 and 0 for the starting position
         _bottom_pipe_y: Y-coordinate for the bottom pipe, calculated with the help of top pipe
-        _pipe = Pygame sprite group for pipe objects
+        pipe = Pygame sprite group for pipe objects
     """
 
     def __init__(self, screen_width):

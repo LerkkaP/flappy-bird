@@ -1,5 +1,6 @@
 import pygame
 from game_manager import GameManager
+from event_handler import EventHandler
 from utils.asset_loader import AssetLoader
 from renderer.base_renderer import BaseRenderer
 

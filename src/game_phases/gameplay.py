@@ -5,8 +5,6 @@ from movements.pipe_movement import PipeMovement
 from utils.sound_manager import SoundManager
 from utils.phase_manager import PhaseManager
 from utils.score import Score
-from db.database_actions import save_score
-
 
 class Gameplay:
     """Class for managing the gameplay phase of the game
@@ -99,7 +97,7 @@ class Gameplay:
         self.ground_movement.move = False
         self.pipe_movement.move = False
         self.phase_manager.set_phase("end")
-        save_score(self.score.get_score())
+        self.score.save_score_to_database()
 
     def reset_bird(self):
         """Resets the bird's position

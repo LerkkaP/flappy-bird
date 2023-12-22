@@ -27,53 +27,44 @@ class GameManager():
             screen_height: Height of the screen
         """
         self.start_phase = Start(screen_width, screen_height)
-        self.gameplay_phase = Gameplay(screen_width, screen_height)
-        self.end_phase = End(screen_width)
-        self.stats_phase = Stats()
-        self.phase_manager = PhaseManager()
-        self.score = Score()
-        self.event_handler = EventHandler(
-            self.phase_manager,
-            self.start_phase,
-            self.gameplay_phase,
-            self.end_phase,
-            self.stats_phase,
-            self.score
+        self._gameplay_phase = Gameplay(screen_width, screen_height)
+        self._end_phase = End(screen_width)
+        self._stats_phase = Stats()
+        self._phase_manager = PhaseManager()
+        self._score = Score()
+        self._event_handler = EventHandler(
+            self._phase_manager,
+            self._gameplay_phase,
+            self._end_phase,
+            self._stats_phase,
+            self._score
         )
 
     def handle_events(self):
         """Handles events
         """
-        self.event_handler.handle_events()
-
-    def _restart_game(self):
-        """Sets game back to restart phase
-        """
-        self.phase_manager.set_phase("start")
-        self.gameplay_phase.reset_bird()
-        self.gameplay_phase.pipe_movement.reset_pipes()
-        self.score.reset_score()
+        self._event_handler.handle_events()
 
     def handle_game_state(self):
         """Handles game state
         """
-        if self.phase_manager.game_in_start():
+        if self._phase_manager.game_in_start():
             self.start_phase.update()
             self.start_phase.handle_text_hover()
-        elif self.phase_manager.game_in_gameplay():
+        elif self._phase_manager.game_in_gameplay():
             self._update_gameplay()
-        elif self.phase_manager.game_in_end():
+        elif self._phase_manager.game_in_end():
             self._update_gameplay()
 
     def _update_gameplay(self):
         """Updates gameplay
         """
-        if not self.phase_manager.game_in_end():
-            self.gameplay_phase.update()
-            self.gameplay_phase.bird.update()
-            self.gameplay_phase.handle_collision()
+        if not self._phase_manager.game_in_end():
+            self._gameplay_phase.update()
+            self._gameplay_phase.bird.update()
+            self._gameplay_phase.handle_collision()
 
-        self.gameplay_phase.handle_bird_fall()
+        self._gameplay_phase.handle_bird_fall()
 
     def get_pipes(self):
         """Returns group of pipe objects
@@ -81,7 +72,7 @@ class GameManager():
         Returns:
             Pygame sprite group of pipe objects
         """
-        return self.gameplay_phase.pipe_movement.pipe
+        return self._gameplay_phase.pipe_movement.pipe
 
     def get_ground(self):
         """Returns group of ground objects
@@ -89,9 +80,9 @@ class GameManager():
         Returns:
             Pygame sprite group of ground objects
         """
-        if self.phase_manager.game_in_start():
+        if self._phase_manager.game_in_start():
             return self.start_phase.ground_movement.ground
-        return self.gameplay_phase.ground_movement.ground
+        return self._gameplay_phase.ground_movement.ground
 
     def get_bird(self):
         """Returs group of bird objects
@@ -99,7 +90,7 @@ class GameManager():
         Returns:
             Pygame sprite group of bird objects
         """
-        return self.gameplay_phase.bird
+        return self._gameplay_phase.bird
 
     def get_end_message(self):
         """Returns the end message
@@ -108,8 +99,8 @@ class GameManager():
             End message and its x and y coordinates
         """
         return (
-            self.end_phase.end_message,
-            (self.end_phase.end_message_x, self.end_phase.end_message_y)
+            self._end_phase.end_message,
+            (self._end_phase.end_message_x, self._end_phase.end_message_y)
         )
 
     def get_start_message(self):

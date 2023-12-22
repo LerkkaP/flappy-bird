@@ -23,3 +23,7 @@
 - Restart painikkeen luominen
 - Testaamista
 - Refaktorointia
+
+## Viikko 7
+
+- 

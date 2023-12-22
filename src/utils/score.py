@@ -1,3 +1,5 @@
+from db.database_actions import save_score
+
 class Score():
     """Class that handles score related tasks
 
@@ -29,3 +31,8 @@ class Score():
         """Resets score
         """
         self.score = 0
+
+    def save_score_to_database(self):
+        score = self.get_score()
+        save_score(score)
+        

@@ -1,78 +1,145 @@
 # Arkkitehtuurikuvaus
 
-## Flappy Bird, alustava luokkakaavio
+## Flappy Bird, pelilogiikan luokkakaavio
 
 ```mermaid
 classDiagram
     GameManager --> Start
     GameManager --> Gameplay
     GameManager --> End
+    GameManager --> EventHandler
+    GameManager --> PhaseManager
 
+    EventHandler --> Gameplay
+    EventHandler --> End
+    EventHandler --> Stats
+    EventHandler --> PhaseManager
+    EventHandler --> Score
+    
     Gameplay --> GroundMovement
     Gameplay --> PipeMovement
     Gameplay --> Bird
+    Gameplay --> PhaseManager
+    Gameplay --> Score
+
     Start --> GroundMovement
+    Stats --> TinyDB
 
     PipeMovement --> Pipe
+    PipeMovement --> Score
+
     GroundMovement --> Ground
 
-    End --> TinyDB
+    Score --> TinyDB
 
     class GameManager {
         + start_phase: Start
-        + gameplay_phase: Gameplay
-        + end_phase: End
-        + phase_manager: PhaseManager
-        + score: Score()
+        - gameplay_phase: Gameplay
+        - end_phase: End
+        - stats_phase: Stats
+        - phase_manager: PhaseManager
+        - score: Score
+        - event_handler: EventHandler
+        + score: Score
         + handle_events()
-        - handle_gameplay_events(event)
-        - handle_start_events(event)
-        - handle_gameplay_phase_events(event)
-        - handle_end_events(event)
-        - restart_game()
         + handle_game_state()
         - update_gameplay()
+        + get_pipes()
+        + get_ground()
+        + get_bird()
+        + get_end_message()
+        + get_start_message()
+    }
+
+    class EventHandler {
+        - phase_manager: PhaseManager
+        - gameplay_phase: Gameplay
+        - end_phase: End
+        - stats_phase: Stats
+        - score: Score
+        + handle_events()
+        - handle_quit_event(event)
+        - handle_quit()
+        - handle_game_events(event)
+        - handle_start_events(event)
+        - handle_gameplay_events(event)
+        - handle_end_events(event)
+        - restart_game()
+    }
+
+    class PhaseManager {
+        - instance: PhaseManager
+        - _phase: str
+        + __new__()
+        + set_phase(phase: str)
+        + game_in_start()
+        + game_in_gameplay()
+        + game_in_end()
+        + game_in_stats()
     }
 
     class Start {
         - screen_width: int
         - screen_height: int
         + ground_movement: GroundMovement
+        + start_message: img
+        + start_message_x: int
+        + start_message_y: int
+        + hover_direction: int
+        + current_hover: int
         - init_start_message()
         - init_hover_attributes()
-        + updated()
+        + update()
         + handle_text_hover()
     }
 
     class Gameplay {
         - screen_height: int
-        + bird: pygame.sprite.Group()
-        - sound_manager: SoundManager()
+        - screen_width: int
+        + bird: pygame.sprite.Group
+        - sound_manager: SoundManager
         + ground_movement: GroundMovement
         + pipe_movement: PipeMovement
+        + phase_manager: PhaseManager
+        - init_bird()
+        - init_game_elements()
         + update()
+        - update_ground()
+        - update_pipes()
         + handle_bird_fly(dx: int, dy: int)
         + handle_bird_fall()
         + handle_collision()
+        - handle_collision_environment
         + reset_bird()
     }
 
     class End {
         - screen_width: int
-        + score: Score()
+        + text: Text
+        + restart_text
+        + stats_text
+        + end_message: img
+        + end_message_x: int
+        + end_message_y: int
         - init_end_message()
-        - init_restart_button()
-        - init_statistics_button()
-        - init_end_message()
-        + handle_restart_click()
-        + save_score_to_database()
-        + get_highest_score_from_database()
+        + handle_restart_click(mouse_pos)
+        + handle_statistics_click(mouse_pos)
     }
 
     class TinyDB {
         + save_score(score)
         + get_highest_score()
         + get_all_scores()
+        + get_number_of_items()
+        + get_list_of_scores()      
+    }
+
+    class Score {
+        - score: int
+        + increment_score()
+        + get_score(): int
+        + reset_score()
+        + save_score_to_database()
     }
 
     class GroundMovement {
@@ -82,7 +149,7 @@ classDiagram
         - speed: float
         + ground: sprite
         + update_ground()
-        + check_collision()
+        + check_collision(bird_group)
     }
 
     class PipeMovement {
@@ -92,14 +159,13 @@ classDiagram
         - pipe_difference: int
         - top_pipe_y: int
         - bottom_pipe_y: int
-        - sound_manager: SoundManager()
         + pipe: pygame.sprite.Group()
-        - score: Score()
+        - score: Score
         - initialize_pipes()
-        - add_pipe()
+        - add_pipe(x, y, is_top)
         + update_pipe()
-        + update_score()
-        + check_collision()
+        + update_score(sound_manager)
+        + check_collision(bird_group)
         + reset_pipes()
     }
 
@@ -136,7 +202,19 @@ classDiagram
 
     }
 
+    class Stats {
+        + text: Text
+        + handle_back_click(mouse_pos)
+        - initialize_graph()
+        - set_graph_properties(ax)
+        - set_ticks(ax, ticks)
+        - render_graph(fig)
+        + draw_graph()
+    }
+
 ```
+
+## Flappy bird, renderöinnin luokkakaavio
 
 ## Flappy Bird, Sekvenssikaaviot
 

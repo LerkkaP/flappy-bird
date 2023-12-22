@@ -1,7 +1,5 @@
 from utils.asset_loader import AssetLoader
-from utils.score import Score
 from utils.text import Text
-from db.database_actions import save_score
 
 
 class End:
@@ -25,7 +23,6 @@ class End:
             screen_width (_type_): _description_
         """
         self._screen_width = screen_width
-        self.score = Score()
         self.text = Text(screen_width)
         self.restart_text = self.text.end_buttons('RESTART')
         self.stats_text = self.text.end_buttons('STATS')
@@ -65,9 +62,3 @@ class End:
         """
         _, stats_text_rect = self.text.end_buttons('STATS')
         return self.text.check_collision(stats_text_rect, mouse_pos)
-
-    def save_score_to_database(self):
-        """Saves score to database
-        """
-        current_score = self.score.get_score()
-        save_score(current_score)
