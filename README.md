@@ -16,7 +16,7 @@ Peli vaatii toimiakseen vähintään Pythonin version __3.9__, jotta __Matplotli
 - [Changelog](dokumentaatio/changelog.md)
 - [Arkkitehtuuri](dokumentaatio/arkkitehtuuri.md)
 - [Testausdokumentti](dokumentaatio/testaus.md)
-- [GithubRelease](https://github.com/LerkkaP/otharjoitustyo/releases/tag/viikko6)
+- [GithubRelease](https://github.com/LerkkaP/otharjoitustyo/releases/tag/viikko7)
 
 ## Käyttöönotto
 
