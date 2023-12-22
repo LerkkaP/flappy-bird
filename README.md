@@ -66,7 +66,7 @@ poetry run invoke format
 
 ## Viimeisin GitHub release
 
-Ohjelman viimeisimpään GitHub releaseen pääsee [täältä](https://github.com/LerkkaP/otharjoitustyo/releases/tag/viikko6)
+Ohjelman viimeisimpään GitHub releaseen pääsee [täältä](https://github.com/LerkkaP/otharjoitustyo/releases/tag/viikko7)
 
 ## Pelin grafiikat ja ääniefektit
 
