@@ -6,6 +6,7 @@ from utils.sound_manager import SoundManager
 from utils.phase_manager import PhaseManager
 from utils.score import Score
 
+
 class Gameplay:
     """Class for managing the gameplay phase of the game
 

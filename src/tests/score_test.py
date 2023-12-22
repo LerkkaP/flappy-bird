@@ -2,6 +2,7 @@ import unittest
 from sprites.pipe import Pipe
 from movements.pipe_movement import PipeMovement
 from utils.score import Score
+from utils.sound_manager import SoundManager
 
 speed = 2
 screen_width = 480
@@ -14,6 +15,7 @@ class TestPipe(unittest.TestCase):
     def setUp(self):
         self.score = Score()
         self.pipe_movement = PipeMovement(screen_width)
+        self.sound_manager = SoundManager()
 
     def test_if_score_is_initially_zero(self):
         initial_score = self.score.get_score()
@@ -39,7 +41,7 @@ class TestPipe(unittest.TestCase):
         self.pipe_movement.pipe.add(pipe_bottom)
         self.pipe_movement.pipe.add(pipe_top)
 
-        self.pipe_movement.update_score()
+        self.pipe_movement.update_score(self.sound_manager)
 
         updated_score = self.score.get_score()
         self.assertEqual(updated_score, 1)

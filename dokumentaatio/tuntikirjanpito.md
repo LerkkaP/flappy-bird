@@ -28,5 +28,5 @@
 | 18.12 | 1    | UI:n parantaminen
 | 20.12 | 4    | Renderöinnin refaktorointi, tekstien refaktoirintia
 | 21.12 | 6    | Renderöinnin refaktorointia, GameManagerin refaktorointi, Docstring viimeistely
-| 22.12 | 5    | Luokkakaavioiden päivittäminen, arkkitehtuurikuvauksen parantaminen
-| yht.  | 53   |
+| 22.12 | 8    | Luokkakaavioiden päivittäminen, arkkitehtuurikuvauksen parantaminen, testausta, projektin viimeistely
+| yht.  | 76   |

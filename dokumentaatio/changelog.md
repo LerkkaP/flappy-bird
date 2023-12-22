@@ -26,4 +26,7 @@
 
 ## Viikko 7
 
-- 
+- Stats sivun lisääminen
+- Testaamista
+- Refaktorointia
+- Käyttöliittymän parantelua

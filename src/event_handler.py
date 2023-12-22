@@ -18,7 +18,6 @@ class EventHandler:
 
         Args:
             phase_manager: PhaseManager class
-            start_phase: Start class
             gameplay_phase: Gameplay class
             end_phase: End class
             stats_phase: Stats class

@@ -4,6 +4,10 @@
 
 **Flappy Bird** on 2D-peli, jossa on tarkoituksena lentää mahdollsimman pitkälle samalla väistäen putkia.
 
+## Huomio
+
+Peli vaatii toimiakseen vähintään Pythonin version __3.9__, jotta __Matplotlib__ toimii.
+
 ## Dokumentaatio
 
 - [Vaatimusmäärittely](dokumentaatio/vaatimusmaarittely.md)
@@ -11,6 +15,7 @@
 - [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 - [Changelog](dokumentaatio/changelog.md)
 - [Arkkitehtuuri](dokumentaatio/arkkitehtuuri.md)
+- [Testausdokumentti](dokumentaatio/testaus.md)
 - [GithubRelease](https://github.com/LerkkaP/otharjoitustyo/releases/tag/viikko6)
 
 ## Käyttöönotto
