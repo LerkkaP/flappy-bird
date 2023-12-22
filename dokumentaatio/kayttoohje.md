@@ -18,13 +18,20 @@ poetry run invoke start
 
 ## Pelaaminen
 
-<img src='image.png' width='500'>
+<img src='kuvat/start.png' width='300'>
+
+Pelin aloitustilanteessa ruudulle avautuu kuva, joka kutsuu käyttäjää valmistautumaan peliin. Pelaaja voi käynnistää pelin painamalla __space__-näppäintä tai klikkaamalla __vasenta__ hiiren näppäintä. Kun peli käynnistyy, tavoitteena on lentää mahdollisimman pitkälle putkien välissä. Pelaaja näkee reaaliajassa pistemääränsä päivittyvän lentäessään putkien välistä. Jos lintu törmää putkeen tai putoaa maahan, peli päättyy. Tällöin näytetään saavutettu tulos sekä paras tulos. Pelaaja voi aloittaa pelin alusta viemällä hiiren kursorin painikkeen __RESTART__ päälle ja klikkaamalla sitä.
+
+<img src='kuvat/end.png' width='300'>
+
+Vaihtoehtoisesti pelaaja voi tarkastella, miten hänen pisteensä ovat kehittyneet pelikertojen edetessä.
+Tämä onnistuu painamalla painiketta __STATS__, josta avautuu näkymä kuvaajaan. __BACK__ painiketta klikkaamalla pelaaja pääsee takaisin lopetusnäyttöön. HUOM! Pelisessioiden indeksointi kuvaajassa alkaa nollasta, joten ensimmäistä pelisessiota vastaa x-akselilla piste 0. Lisäksi on tärkeää huomata, että kuvaajassa ei esiinny viivaa, mikäli pelikertoja ei ole kertynyt tarpeeksi.
+
+<img src='kuvat/stats.png' width='300'>
 
 
-Ruudulle avautuu aloitustilanne. Näytöllä on kuva, joka kehottaa valmistautumaan peliin. Pelin voi aloittaa painamalla **space** näppäintä tai **vasenta** hiirinäppäintä. Kun peli alkaa, tavoitteena on lentää mahdollisimman pitkälle putkien välistä. Pelaaja näkee reaaliaikaisesti pistemäärän päivittyvän, kun putkien välistä lentää. Mikäli lintu törmää putkiin tai putoaa maahan, peli päättyy ja näytetään saatu tulos ja paras tulos. Pelin voi aloittaa alusta viemälle hiiren kursorin tekstin **restart** päälle ja painamalla sitä. 
 
-<img src="image-1.png" width="500">
 
-## Huomio
 
-Loppunäytön tekeminen on kesken, joten painike **figure** ei vielä toimi. Lisäksi saadun tuloksen ja kaikkien aikojen parhaan tuloksen sijoittelua näytöllä täytyy parantaa.
+
+

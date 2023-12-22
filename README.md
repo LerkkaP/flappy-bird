@@ -65,7 +65,7 @@ Ohjelman viimeisimpään GitHub releaseen pääsee [täältä](https://github.co
 
 ## Pelin grafiikat ja ääniefektit
 
-Pelin grafiikat - poislukien Pygamen omat tekstit - ja ääniefektit ovat peräisin [täältä](https://github.com/samuelcust/flappy-bird-assets)
+Pelin grafiikat ja ääniefektit ovat peräisin [täältä](https://github.com/samuelcust/flappy-bird-assets) (poislukien Pygamen omat tekstit)
 
 Niiden käyttöoikeus on myönnetty seuraavan MIT-lisenssin mukaisesti:
 
