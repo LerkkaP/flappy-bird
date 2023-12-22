@@ -1,6 +1,6 @@
 # Käyttöohje
 
-Projektin viimeisimmän *Github Releasen* voi ladata [täältä](https://github.com/LerkkaP/otharjoitustyo/releases/tag/viikko5)
+Projektin viimeisimmän *Github Releasen* voi ladata [täältä](https://github.com/LerkkaP/otharjoitustyo/releases/tag/viikko7)
 
 ## Ohjelman käynnistys
 
